@@ -1,0 +1,228 @@
+<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/website#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>QTmedia</title>
+
+    <!-- viewport -->
+    <script src="../../js/viewport.js"></script>
+
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ogp -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="QTmedia">
+    <meta property="og:title" content="QTmedia">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="../../img/common/ogp.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QTmedia">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="../../img/common/ogp.png">
+
+    <!--favicon-->
+    <link href="../../favicon.ico" rel="shortcut icon">
+
+    <!-- apple-touch-icon-->
+    <link rel="apple-touch-icon" href="../../img/common/apple-touch-icon-precomposed.png">
+
+    <!-- webfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/common.css">
+
+    <!-- 個別css -->
+
+    <!-- js-->
+    <script src="../../js/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--contents-->
+        <div id="contents">
+
+            <!-- slider-block -->
+            <div class="slider-block">
+
+                <!-- swiper -->
+                <div class="swiper">
+
+                    <!-- swiper-wrapper -->
+                    <div class="swiper-wrapper">
+
+                        <!-- swiper-slide -->
+                        <div class="swiper-slide"><img src="https://placehold.jp/1600x900.png" alt=""></div>
+                        <!-- swiper-slide -->
+
+                        <!-- swiper-slide -->
+                        <div class="swiper-slide"><img src="https://placehold.jp/1600x900.png" alt=""></div>
+                        <!-- swiper-slide -->
+
+                        <!-- swiper-slide -->
+                        <div class="swiper-slide"><img src="https://placehold.jp/1600x900.png" alt=""></div>
+                        <!-- swiper-slide -->
+
+                        <!-- swiper-slide -->
+                        <div class="swiper-slide"><img src="https://placehold.jp/1600x900.png" alt=""></div>
+                        <!-- swiper-slide -->
+
+                        <!-- swiper-slide -->
+                        <div class="swiper-slide"><img src="https://placehold.jp/1600x900.png" alt=""></div>
+                        <!-- swiper-slide -->
+
+                    </div>
+                    <!-- swiper-wrapper -->
+
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next js-swiper-next"></div>
+                    <div class="swiper-button-prev js-swiper-next"></div>
+
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- 停止ボタンノーマル -->
+                    <!-- <p><button class="stopbtn stop">停止</button></p> -->
+                    <!-- 停止ボタンノーマル -->
+
+                    <!-- 停止ボタン画像切り替え -->
+                    <p><button class="stopbtn02 stop"><img title="停止" src="../../img/common/ico_stop_w.svg" width="15" alt="スライダーを停止する"></button></p>
+                    <!-- 停止ボタン画像切り替え -->
+
+                    <!-- 停止ボタン画像並べる -->
+                    <!-- <div class="btn-swiper">
+
+							<p><button class="btn stop"><img title="停止" src="img/common/ico_stop_w.svg" width="10" alt="スライダーを停止する"></button></p>
+							<p><button class="btn play"><img title="再生" src="img/common/ico_play_w.svg" width="10" alt="スライダーを再生する"></button></p>
+
+						</div> -->
+                    <!-- 停止ボタン画像並べる -->
+
+                </div>
+                <!-- swiper -->
+
+            </div>
+            <!-- slider-block -->
+
+        </div>
+        <!--contents-->
+
+    </div>
+    <!-- wrapper -->
+
+    <!-- 共通JS -->
+    <script src="../../js/common.js"></script>
+
+    <!-- 個別JS -->
+    <script src="../../js/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css">
+
+    <!-- swiper設定 -->
+    <script>
+
+        var slideLength = $('.swiper .swiper-slide').length;
+
+        if (slideLength <= 1) {
+
+            var swiper = new Swiper('.swiper', {
+                loop: false,
+                touchRatio: 0,
+                navigation: {
+                    nextEl: '.swiper .swiper-button-next',
+                    prevEl: '.swiper .swiper-button-prev',
+                },
+            });
+
+        } else if (slideLength > 1) {
+
+            var swiper = new Swiper('.swiper', {
+                loop: true,
+                slidesPerView: 1,/* 1画面に見えるスライドの数 */
+                spaceBetween: 0,/* スライドの間隔 */
+                speed: 500,/* スライドの早さ */
+                pagination: {/* ページネーション */
+                    el: '.swiper-pagination',
+                    clickable: true,/* クリックでそのスライドに移動できる */
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,/* ページネーションをクリックした後に自動再生する */
+                },
+            });
+        }
+
+        /* 再生、停止ボタン */
+        $(window).on('load', function () {
+
+            // 停止ボタンノーマル
+            // $(".stopbtn").on("click", function () {
+            // 	var _class = $(this).attr("class");
+            // 	if (_class == "stopbtn stop") {
+            // 		$(this).addClass("start").removeClass("stop");
+            // 		swiper.autoplay.stop();
+            // 		$(this).text('再生');
+            // 	}
+            // 	else {
+            // 		$(this).addClass("stop").removeClass("start");
+            // 		swiper.autoplay.start();
+            // 		$(this).text('停止');
+            // 	}
+            // });
+
+            // 停止ボタン画像切り替え
+            $(".stopbtn02").on("click", function () {
+                var _class = $(this).attr("class");
+                if (_class == "stopbtn02 stop") {
+                    $(this).addClass("start").removeClass("stop");
+                    swiper.autoplay.stop();
+                    $(".stopbtn02 img").each(function () {
+                        var src = $(this).attr("src").replace('_stop_w.', '_play_w.');
+                        $(this).attr({
+                            src: src,
+                            title: '再生',
+                            alt: 'スライダーを再生する'
+                        });;
+                    });
+                }
+                else {
+                    $(this).addClass("stop").removeClass("start");
+                    swiper.autoplay.start();
+                    $(".stopbtn02 img").each(function () {
+                        var src = $(this).attr("src").replace('_play_w.', '_stop_w.');
+                        $(this).attr({
+                            src: src,
+                            title: '停止',
+                            alt: 'スライダーを停止する'
+                        });;
+                    });
+                }
+            });
+
+            // 停止ボタン画像並べる
+            // $(window).on('load', function () {
+            // 	$(".btn.stop").on("click", function () {
+            // 		swiper.autoplay.stop();
+            // 	});
+            // 	$(".btn.play").on("click", function () {
+            // 		swiper.autoplay.start();
+            // 	});
+            // });
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/website#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>QTmedia</title>
+
+    <!-- viewport -->
+    <script src="../../js/viewport.js"></script>
+
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ogp -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="QTmedia">
+    <meta property="og:title" content="QTmedia">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="../../img/common/ogp.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QTmedia">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="../../img/common/ogp.png">
+
+    <!--favicon-->
+    <link href="../../favicon.ico" rel="shortcut icon">
+
+    <!-- apple-touch-icon-->
+    <link rel="apple-touch-icon" href="../../img/common/apple-touch-icon-precomposed.png">
+
+    <!-- webfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/common.css">
+
+    <!-- 個別css -->
+
+    <!-- js-->
+    <script src="../../js/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--contents-->
+        <div id="contents">
+
+            <!-- inner -->
+            <div class="inner">
+
+                <h2><strong>・・・・・・ MEMO ・・・・・・</strong></h2>
+                <dl>
+                    <dt>【0枚の時】</dt>
+                    <dd>スライダー毎削除</dd>
+                </dl>
+                <dl>
+                    <dt>【3枚以下の時】</dt>
+                    <dd>ループしない・自動スライドなし・スワイプできない</dd>
+                </dl>
+                <dl>
+                    <dt>【3枚以上の時】</dt>
+                    <dd>ループする</dd>
+                </dl>
+                <br>
+
+                <!-- slider-bnr -->
+                <div class="slider-bnr">
+
+                    <!-- slider-block -->
+                    <div class="slider-block">
+                        <!-- swiper -->
+                        <div class="swiper">
+
+                            <!-- list-bnr -->
+                            <ul class="list-bnr swiper-wrapper">
+                                <li class="swiper-slide"><a href=""><img src="../../img/top/bnr01.png" alt=""></a></li>
+                                <li class="swiper-slide"><a href=""><img src="../../img/top/bnr01.png" alt=""></a></li>
+                                <li class="swiper-slide"><a href=""><img src="../../img/top/bnr01.png" alt=""></a></li>
+                                <li class="swiper-slide"><a href=""><img src="../../img/top/bnr01.png" alt=""></a></li>
+                                <li class="swiper-slide"><a href=""><img src="../../img/top/bnr01.png" alt=""></a></li>
+                            </ul>
+                            <!-- list-bnr -->
+
+                        </div>
+                        <!-- swiper -->
+                    </div>
+                    <!-- slider-block -->
+
+                </div>
+                <!-- slider-bnr -->
+
+            </div>
+            <!-- inner -->
+
+        </div>
+        <!--contents-->
+
+    </div>
+    <!-- wrapper -->
+
+    <!-- 共通JS -->
+    <script src="../../js/common.js"></script>
+
+    <!-- 個別JS -->
+    <script src="../../js/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css">
+
+    <!-- swiper設定 -->
+    <script>
+
+        // slider-bnr
+        var slideLengthBnr = $('.slider-bnr .list-bnr li').length;
+
+        if (slideLengthBnr == 0) {
+            $('.bnr-area').hide();
+        }
+
+        if ($(window).width() > 768) {
+
+            if (slideLengthBnr <= 3) {
+
+                //slider-bnr
+                var swiper = new Swiper('.slider-bnr .swiper', {
+                    loop: false,
+                    centeredSlides: false,
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    touchRatio: 0
+                });
+
+            } else if (slideLengthBnr > 3) {
+
+                //slider-bnr
+                var swiper = new Swiper('.slider-bnr .swiper', {
+                    loop: true,
+                    centeredSlides: true,
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    speed: 500,
+                    loopAdditionalSlides: 1,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                });
+
+            }
+
+        } else if ($(window).width() <= 768) {
+
+            if (slideLengthBnr == 1) {
+
+                //slider-bnr
+                var swiper = new Swiper('.slider-bnr .swiper', {
+                    loop: false,
+                    centeredSlides: false,
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    touchRatio: 0
+                });
+
+            } else if (slideLengthBnr > 1) {
+
+                //slider-bnr
+                var swiper = new Swiper('.slider-bnr .swiper', {
+                    loop: true,
+                    centeredSlides: true,
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    speed: 500,
+                    loopAdditionalSlides: 1,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                });
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
