@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/website#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>QTmedia</title>
+
+    <!-- viewport -->
+    <script src="../js/viewport.js"></script>
+
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ogp -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ボタニカルライフスクエア">
+    <meta property="og:title" content="ボタニカルライフスクエア">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="../img/common/ogp.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ボタニカルライフスクエア">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="../img/common/ogp.png">
+
+    <!--favicon-->
+    <link href="../favicon.ico" rel="shortcut icon">
+
+    <!-- apple-touch-icon-->
+    <link rel="apple-touch-icon" href="../img/common/apple-touch-icon-precomposed.png">
+
+    <!-- webfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- 個別css -->
+    <link rel="stylesheet" href="css/guidelines.css">
+
+
+    <!-- js-->
+    <script src="../js/jquery.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--contents-->
+        <div id="contents">
+
+            <!-- page-ttl -->
+            <h2 class="page-ttl">ガイドライン<span>QTmedia</span></h2>
+            <!-- page-ttl -->
+
+            <div class="inner">
+
+                <div class="breadCrumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="../@guidelines/">ガイドライン</a></li>
+                        <li>概要、基本ルール</li>
+                    </ul>
+                </div>
+
+                <!-- tab-list -->
+                <ul class="tab-list">
+                    <li><a class="active" href="index.html">概要、基本ルール</a></li>
+                    <li><a href="index2.html">テンプレートの使い方、ルール</a></li>
+                    <li><a href="index3.html">クオリティチェック</a></li>
+                    <li><a href="release_note.html">リリースノート</a></li>
+                </ul>
+                <!-- tab-list -->
+
+                <!-- post-content -->
+                <article class="post-content">
+
+                    <!-- wysiwyg -->
+                    <div class="wysiwyg">
+
+                        <!-- h1 -->
+                        <h1>概要、基本ルール</h1>
+                        <!-- h1 -->
+
+
+                        <div class="mokuji">
+                            <p>目次</p>
+                            <ol>
+                                <li><a href="#guide01">本ガイドラインについて</a></li>
+                                <li><a href="#guide02">HTMLマークアップのルール</a></li>
+                                <li><a href="#guide03">CSSのルール</a></li>
+                            </ol>
+                        </div>
+
+                        <!-- h2 -->
+                        <h2 id="guide01">本ガイドラインについて</h2>
+                        <!-- h2 -->
+
+                        <p>本ガイドラインは、Webサイト制作を行う際の記述ルール等を定めたものです。<br>
+                            クオリティの向上・均一化、制作の効率化を目的とし、常に見直しを行い、必要に応じ検討・更新を行います。<br>
+                            また、本ガイドラインが適用されるのは、新規サイトのみです。<br>
+                            以前に制作したサイトや、既にガイドラインがある場合はそのルールに準じます。 </p>
+
+                        <!-- h3 -->
+                        <h3>サイトの仕様</h3>
+                        <!-- h3 -->
+
+                        <p>本ガイドラインでは、Webサイトの基本仕様を以下の指定で制作する事と定めます。<br>
+                            ただし、案件ごとに違うこともありますので、サイト作成前に必ず確認してください。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">DTD</th>
+                                    <td>HTML5</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CSS</th>
+                                    <td>CSS2.1〜</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">文字コード</th>
+                                    <td>UTF-8</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">改行コード</th>
+                                    <td>CR+LF</td>
+                                </tr>
+                                <tr>
+                                    <th scope="rowgroup" rowspan="2">対象ブラウザ※要確認</th>
+                                    <td>PC:[ Safari/Firefox/Chrome/MS Edgeの各最新ブラウザ]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>iphone、android、ipad
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note">※CSSのバージョンについて（<a href="https://wemo.tech/807#index_id4" target="_blank">https://wemo.tech/807#index_id4</a>）</p>
+
+
+                        <!-- h3 -->
+                        <h3>命名規則</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>半角英数字のみを使用する。</li>
+                            <li>初めの文字はアルファベットとする。</li>
+                            <li>全角・半角スペースは使用しない。</li>
+                            <li>単語が複数連続する場合は、単語間に「-（ハイフン）」を使用する。（画像の場合は「_（アンダーバー）」）</li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>ディレクトリ名</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>動的の場合は複数形（s）が付くようにする。</li>
+                            <li>カテゴリーを英語化したものを使用する。<br>
+                                <span class="example">例）概要 outline/、イベント event/、九州地図 map-kyushu/</span>
+                            </li>
+                            <li>単語が複数連続する場合は、単語間に「-（ハイフン）」を使用する。</li>
+                            <li>ページタイトルが複数の単語でファイル名が長くなる場合は、単語を1〜2語に絞って命名する。<br>
+                                <span class="example">例）2015年会社沿革 history2015/</span>
+                            </li>
+                            <li>同様のディレクトリが複数存在する場合は連番を使用可能とする。<br>
+                                <span class="example">例）店舗詳細 shop001/、shop002/ ...</span>
+                            </li>
+                        </ul>
+
+                        <!-- h4 -->
+                        <h4>使用を推奨するディレクトリ名</h4>
+                        <!-- h4 -->
+
+                        <p>クオリティの均一化のため、特に理由がない限り以下のディレクトリ名を採用します。</p>
+
+                        <!-- table-scroll -->
+                        <div class="table-scroll">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" rowspan="7">
+                                            <p>　動的　</p>
+                                        </th>
+                                        <th scope="row">新着</th>
+                                        <td>news</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">旬情報</th>
+                                        <td>topics</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">観光スポット</th>
+                                        <td>spots</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">イベント</th>
+                                        <td>events</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">お問い合わせ</th>
+                                        <td>inquiries,contact</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">お気に入り</th>
+                                        <td>favorite</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">マイ旅行プラン</th>
+                                        <td>myplan</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="rowgroup" rowspan="10">
+                                            <p>　静的　</p>
+                                        </th>
+                                        <th scope="row">特集</th>
+                                        <td>feature,special</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">モデルコース</th>
+                                        <td>courses</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">このサイトについて</th>
+                                        <td>about</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">交通アクセス</th>
+                                        <td>access</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Q&A</th>
+                                        <td>faq</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">プライバシーポリシー</th>
+                                        <td>privacies</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ウェブポリシー</th>
+                                        <td>policy</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">サイトマップ</th>
+                                        <td>sitemaps</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">リンク集</th>
+                                        <td>links</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">404ページ</th>
+                                        <td>notfound</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>ファイル名</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>ディレクトリのインデックスにあたるページはindex.htmlとする。</li>
+                            <li>ページタイトルを英語化したものを使用する。<br>
+                                <span class="example">例）概要 outline.html、イベント event.html</span>
+                            </li>
+                            <li>ページタイトルが複数の単語でファイル名が長くなる場合は、単語を1〜2語に絞って命名する。<br>
+                                <span class="example">例）2015年会社沿革 history2015.html</span>
+                            </li>
+                            <li>単語が複数連続する場合は、単語間に「-（ハイフン）」を使用する。</li>
+                            <li>同様のページが複数存在する場合は連番を使用可能とする。<br>
+                                <span class="example">例）店舗詳細 shop001.html、shop002.html ...</span>
+                            </li>
+                        </ul>
+
+
+                        <!-- h4 -->
+                        <h4>使用を推奨するファイル名</h4>
+                        <!-- h4 -->
+
+                        <p>クオリティの均一化のため、特に理由がない限り以下のファイル名を採用します。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>トップページ</th>
+                                    <td>index</td>
+                                </tr>
+                                <tr>
+                                    <th>一覧</th>
+                                    <td>list</td>
+                                </tr>
+                                <tr>
+                                    <th>詳細</th>
+                                    <td>detail</td>
+                                </tr>
+                                <tr>
+                                    <th>検索</th>
+                                    <td>search</td>
+                                </tr>
+                                <tr>
+                                    <th>地図</th>
+                                    <td>map</td>
+                                </tr>
+                                <tr>
+                                    <th>フォーム確認</th>
+                                    <td>confirm</td>
+                                </tr>
+                                <tr>
+                                    <th>フォーム完了</th>
+                                    <td>complete</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>画像ファイル名</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>画像のファイル名は、「種類」を区分する部分と「個性」を示す部分、同様のものが複数存在する場合は「数字」で構成する。</li>
+                            <li>「種類」と「個性」をアンダーバー（_）で区切り、「数字」がある場合は続けて使用しファイル名とする。<br>
+                                <span class="example">例）閉じるボタン btn_close.gif、ナビゲーションのアイコン ico_nav01.jpg</span>
+                            </li>
+                        </ul>
+
+                        <!-- h4 -->
+                        <h4>種類の例</h4>
+                        <!-- h4 -->
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>ロゴ</th>
+                                    <td>logo_</td>
+                                </tr>
+                                <tr>
+                                    <th>ページタイトル</th>
+                                    <td>ttl_</td>
+                                </tr>
+                                <tr>
+                                    <th>ナビ</th>
+                                    <td>nav_</td>
+                                </tr>
+                                <tr>
+                                    <th>ボタン</th>
+                                    <td>btn_</td>
+                                </tr>
+                                <tr>
+                                    <th>バナー</th>
+                                    <td>bnr_</td>
+                                </tr>
+                                <tr>
+                                    <th>背景</th>
+                                    <td>bg_</td>
+                                </tr>
+                                <tr>
+                                    <th>写真</th>
+                                    <td>pht_</td>
+                                </tr>
+                                <tr>
+                                    <th>サムネイル</th>
+                                    <td>tmb_</td>
+                                </tr>
+                                <tr>
+                                    <th>アイコン</th>
+                                    <td>ico_</td>
+                                </tr>
+                                <tr>
+                                    <th>図表など</th>
+                                    <td>pct_</td>
+                                </tr>
+                                <tr>
+                                    <th>テキスト</th>
+                                    <td>txt_</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>ディレクトリ構成</h3>
+                        <!-- h3 -->
+
+                        <p>基本的なディレクトリ構成は以下です。<br>
+                            多言語サイトの場合は事前にプログラマに確認してください。</p>
+
+                        <pre class="guideline-code">
+<code>
+	html/
+	├── index.html
+	│
+	├── css/
+	│ ├── common.css
+	│ ├── top.css
+	│ ├── print.css
+	│
+	├── img/
+	│ ├── common/
+	│ ├── top/
+	││
+	├── js/
+	│ ├── jquery.js
+	│ ├── common.js
+	│ ├── plugin.js
+	│ ├── plugin-name/　（プラグインとそれに関連するアイテムは同じフォルダに格納してください。）
+	│ 　├── plugin-name.js
+	│ 　├── plugin-name.css
+	│ 　├── images/
+	││
+	├── scss/
+	│ ├── common/（common.scssに吐き出すscssファイルを格納してください）
+	│ ├──── _base.scss
+	│ ├──── _element.scss
+	│ ├──── _variable.scss
+	││
+	│ ├── page/（各ページに吐き出すscssファイルを格納してください）
+	│ ├──── _top.scss
+	│ ├──── _event.scss
+	││
+	├── news/
+	│ ├── index.html
+	│ ├── detail.html
+	│ ├── css/
+	│ │ 　├── news.css　（ディレクトリごとの固有のcssにはそのディレクトリ名を使ってください）
+	│ ├── img/
+	│ ├── document/　（pdfなどは関連するディレクトリの中にサブフォルダを作って格納すること）
+</code>
+</pre>
+
+                        <!-- h2 -->
+                        <h2 id="guide02">HTMLマークアップのルール</h2>
+                        <!-- h2 -->
+
+                        <p>HTMLの本質は文書の構造化であり、マークアップはそのための手段です。<br>
+                            正しいマークアップを行なうためにはHTMLタグ一つひとつの意味を理解し適切に判断して使用しなければいけません。<br>
+                            そのためのガイドラインを以下に示します。</p>
+
+                        <!-- h3 -->
+                        <h3>書式ルール</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>文書構造・見た目・振る舞いは、分離すること。</li>
+                            <li>HTMLファイル内では基本的にHTMLのみのマークアップ行い、視覚表現（装飾やアニメーション）は外部ファイル化したCSS、JavaScriptで行うこと。</li>
+                            <li>アクセシビリティの観点からhtml内にstyleタグは使用しない。</li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>プロトコル</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>可能であれば、埋め込みリソースにはHTTPSプロトコルを使用してください。</li>
+                            <li>それぞれのファイルがHTTPS上で利用可能でない限り、イメージやその他のメディアファイル、スタイルシート、およびスクリプトには常にHTTPSプロトコル（https
+                                :)を使用します。</li>
+                            <li>古いページを流用したときに、外部から読み込まれているファイルがHTTPSになっているか必ず確認してください。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- OK --&gt;
+	&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+	&lt;!-- NG --&gt;
+	&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+	&lt;!-- NG --&gt;
+	&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+	/* OK */
+	@import &#039;https://fonts.googleapis.com/css?family=Open+Sans&#039;;
+
+	/* NG */
+	@import &#039;//fonts.googleapis.com/css?family=Open+Sans&#039;;
+
+	/* NG */
+	@import &#039;http://fonts.googleapis.com/css?family=Open+Sans&#039;;
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>画像のalt</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>画像には、意味のある代替テキストをalt属性として、動画・オーディオコンテンツにはキャプションを記述する。</li>
+                            <li>装飾的な用途の場合など意味を持たない画像については、代替テキストは記述せずにalt=""とする。</li>
+                            <li>以下のように、alt名の文頭に付ける名前を統一するとよい。
+                                <ul>
+                                    <li>写真の画像の場合は、「alt="写真：○○"」</li>
+                                    <li>イラストの画像の場合は、「alt="イラスト：○○"」</li>
+                                    <li>図の画像の場合は、「alt="図：○○"」</li>
+                                    <li>※ 「：」の文字は全角にする。（半角の「:」はmichekerでエラーが出る）</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>パスの指定ルール</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>サイト内リンクは指定が無い場合、原則として相対パスとする。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- 相対パス --&gt;
+	&lt;a href=&quot;../company/&quot;&gt;リンク&lt;/a&gt;
+
+	&lt;!-- ルートパス --&gt;
+	&lt;img src=&quot;/img/ttl-main.gif&quot;&gt;
+
+	&lt;!-- 絶対パス --&gt;
+	&lt;a href=&quot;https://www.kiml.co.jp/outline/&quot; target=&quot;_blank&quot;&gt;リンク&lt;/a&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>PDFファイルへのリンク時は、target属性に「_blank」を指定する。</li>
+                            <li>外部サイトへのリンク時は、target属性に「_blank」を指定する。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!--  PDFファイルへのリンク --&gt;
+	&lt;a href=&quot;/pdf/example.pdf&quot; target=&quot;_blank&quot;&gt;PDFドキュメント&lt;/a&gt;
+
+	&lt;!-- 外部サイトへのリンク --&gt;
+	&lt;a href=&quot;https://www.kiml.co.jp/outline/&quot; target=&quot;_blank&quot;&gt;リンク&lt;/a&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>リンク先が不明のところは開発にわかりやすいよう「#」を入れる。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- indexファイルへのリンク --&gt;
+	&lt;a href=&quot;#&quot;&gt;サイトマップ&lt;/a&gt;
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>インデント</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>タブでインデントする。</li>
+                            <li>半角スペースを使ったり、タブとスペースを混在させるのはNG</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;ul&gt;
+		&lt;li&gt;Fantastic&lt;/li&gt;
+		&lt;li&gt;Great&lt;/li&gt;
+	&lt;/ul&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>ブロック要素・リスト要素・テーブル要素は改行してから記述し、それらの子要素にはインデントを入れる。</li>
+                            <li>横並びリストなど改行による空白が問題になる場合は、li要素をすべて一行で書いてもOK</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;blockquote&gt;
+		&lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
+	&lt;/blockquote&gt;
+
+	&lt;ul&gt;
+		&lt;li&gt;Moe&lt;/li&gt;
+		&lt;li&gt;Larry&lt;/li&gt;
+		&lt;li&gt;Curly&lt;/li&gt;
+	&lt;/ul&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>不要な空白を入れない</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- NG --&gt;
+	&lt;p&gt;実は不要な空白が、タグの後ろと次の行にあります・・・。&lt;/p&gt; &larr;
+</code>
+</pre>
+
+
+                        <!-- h3 -->
+                        <h3>コメント</h3>
+                        <!-- h3 -->
+
+                        <p>開発が組み込むときにわかりやすいように、出来るだけコメントを残すようにします。</p>
+
+                        <ul>
+                            <li>共通化できるところを開発にわかりやすく明示します。</li>
+                        </ul>
+
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!DOCTYPE HTML&gt;
+	&lt;html lang=&quot;ja&quot;&gt;
+	&lt;head&gt;
+	&lt;meta charset=utf-8&quot;&gt;
+	&lt;title&gt;無題ドキュメント&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;header&gt;
+		ここにヘッダーが入ります。
+	&lt;/header&gt;
+	&lt;div id=&quot;contents&quot;&gt;
+		&lt;div class=&quot;breadCrumbs&quot;&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href=&quot;/&quot;&gt;HOME&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;NEWS&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+
+		&lt;!-- ※開発様へ：共通ここまで▲▲▲▲▲▲▲ --&gt;
+
+		&lt;div class=&quot;main&quot;&gt;
+			ここに内容が入ります。
+		&lt;/div&gt;
+
+		&lt;!-- ※開発様へ：共通こから▼▼▼▼▼▼▼ --&gt;
+	&lt;/div&gt;
+	&lt;footer&gt;
+		ここにフッターが入ります。
+	&lt;/footer&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>ページごとに必要なものか、そうでないものかを開発にわかりやすく明示します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!DOCTYPE HTML&gt;
+	&lt;html lang=&quot;ja&quot;&gt;
+	&lt;head&gt;
+	&lt;meta charset=utf-8&quot;&gt;
+	&lt;title&gt;無題ドキュメント&lt;/title&gt;
+	&lt;!-- css --&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/common.css&quot; /&gt;
+	&lt;!-- js --&gt;
+	&lt;script  src=&quot;/js/common.js&quot;&gt;&lt;/script&gt;
+
+	&lt;!-- ※開発様へ：このページだけに読み込むファイルです --&gt;
+	&lt;link rel=&quot;stylesheet&quot;href=&quot;/spots/css/spots.css&quot; /&gt;
+	&lt;!--matchHeigtht--&gt;
+	&lt;script src=&quot;/js/jquery.matchHeight.js&quot;&gt;&lt;/script&gt;
+	&lt;scrip&gt;
+		$(function() {
+			$(&#039;.spotList li a&#039;).matchHeight();
+		});
+	&lt;/script&gt;
+	&lt;/head&gt;
+</code>
+</pre>
+                        <ul>
+                            <li>各ブロックのまとまりがわかるように開始と終了のコメントを残します。</li>
+                            <li>開発へのメッセージ以外のコメントは半角英数で記述します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- contents --&gt;
+	&lt;div id=&quot;contents&quot;&gt;
+
+		&lt;!-- breadCrumbs --&gt;
+		&lt;div class=&quot;breadCrumbs&quot;&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href=&quot;/&quot;&gt;HOME&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;NEWS&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;!-- /breadCrumbs --&gt;
+
+		&lt;!-- ※開発様へ：共通ここまで▲▲▲▲▲▲▲ --&gt;
+
+		&lt;!-- main --&gt;
+		&lt;div class=&quot;main&quot;&gt;
+			ここに内容が入ります。
+		&lt;/div&gt;
+		&lt;!-- /main --&gt;
+
+		&lt;!-- ※開発様へ：共通こから▼▼▼▼▼▼▼ --&gt;
+	&lt;/div&gt;
+	&lt;!-- /contents --&gt;
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>マークアップ</h3>
+                        <!-- h3 -->
+
+                        <p>以下に基本的なマークアップとその解説を示します。</p>
+
+                        <!-- h4 -->
+                        <h4>ドキュメントタイプ</h4>
+                        <!-- h4 -->
+
+                        <p>HTML5を使うこと。多言語の場合は作成するコンテンツの言語に合わせてlang属性を指定する。</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!DOCTYPE html&gt;
+
+	&lt;!-- 日本語 --&gt;
+	&lt;html lang=&quot;ja&quot;&gt;
+
+	&lt;!-- 英語 --&gt;
+	&lt;html lang=&quot;en&quot;&gt;
+
+	&lt;!-- 韓国語 --&gt;
+	&lt;html lang=&quot;kr&quot;&gt;
+
+	&lt;!-- 簡体字 --&gt;
+	&lt;html lang=&quot;zh-cn&quot;&gt;
+
+	&lt;!-- 繁体字 --&gt;
+	&lt;html lang=&quot;zh-tw&quot;&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>head</h4>
+                        <!-- h4 -->
+
+                        <p>head内の記述例は以下の通りです。</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;head prefix=&quot;og: http://ogp.me/ns#  article: http://ogp.me/ns/website#&quot;&gt;
+	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;★★★ | ★★★&lt;/title&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;★★★★★★★★★★★★&quot;&gt;
+	&lt;meta name=&quot;keyword&quot; content=&quot;★★★,★★★,★★★&quot;&gt;
+	&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+	&lt;!-- ogp --&gt;
+	&lt;meta property=&quot;og:locale&quot; content=&quot;ja_JP&quot;&gt;
+	&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+	&lt;meta property=&quot;og:site_name&quot; content=&quot;★★★&quot;&gt;
+	&lt;meta property=&quot;og:title&quot; content=&quot;★★★&quot;&gt;
+	&lt;meta property=&quot;og:description&quot; content=&quot;★★★★★★★★★★★★&quot;&gt;
+	&lt;meta property=&quot;og:image&quot; content=&quot;★★★/img/ogp.png&quot;&gt;
+	&lt;meta property=&quot;og:url&quot; content=&quot;★★★&quot;&gt;
+	&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+	&lt;meta name=&quot;twitter:title&quot; content=&quot;★★★&quot;&gt;
+	&lt;meta name=&quot;twitter:description&quot; content=&quot;★★★★★★★★★★★★&quot;&gt;
+	&lt;meta name=&quot;twitter:image:src&quot; content=&quot;★★★/img/ogp.png&quot;&gt;
+	&lt;!-- viewport --&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;
+	&lt;!--favicon icon--&gt;&lt;!-- favicon --&gt;
+	&lt;link href=&quot;/favicon.ico&quot; rel=&quot;shortcut icon&quot; /&gt;
+	&lt;!-- apple-touch-icon--&gt;
+	&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/apple-touch-icon.png&quot;&gt;
+	&lt;!-- css --&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/style.css&quot;&gt;
+	&lt;!-- fonts --&gt;
+	&lt;link href=&quot;https://use.fontawesome.com/releases/v5.0.6/css/all.css&quot; rel=&quot;stylesheet&quot;&gt;
+	&lt;!-- js --&gt;
+	&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;../js/modernizr-custom.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;../js/common.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>title要素</h4>
+                        <!-- h4 -->
+
+                        <p>ユーザビリティ、アクセシビリティ、SEOの観点から適切なものを設定します。<br>
+                            あまり長すぎるとGoole検索結果でカットされることになるので注意が必要です。内容によっては改変された文言が表示されることもあるようです。<br>
+                            内容はディレクターに確認してください。</p>
+
+                        <ul>
+                            <li>ページ固有の内容を設定する必要があります。</li>
+                            <li>ページ名、親カテゴリ名、サイト名の順に「｜（全角縦棒）」で区切ります。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;title&gt;ページ名｜サイト名&lt;/title&gt;
+	&lt;title&gt;ページ名｜カテゴリ名｜サイト名&lt;/title&gt;
+</code>
+</pre>
+
+
+                        <!-- h4 -->
+                        <h4>meta要素（keywords、description）</h4>
+                        <!-- h4 -->
+
+                        <p>ユーザビリティ、アクセシビリティ、SEOの観点から適切なものを設定します。<br>
+                            ページ固有の内容を設定する必要があります。内容はディレクターに確認してください。</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;meta name=&quot;description&quot; content=&quot;xxxxx&quot;&gt;
+	&lt;meta name=&quot;keyword&quot; content=&quot;xxx,xxxx,xxxxx&quot;&gt;
+</code>
+</pre>
+                        <!-- h4 -->
+                        <h4>meta要素（format-detection）</h4>
+                        <!-- h4 -->
+
+                        <p>電話番号等の自動リンク機能を制御する為にformat-detectionを指定します。</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>meta要素（ogp）</h4>
+                        <!-- h4 -->
+
+                        <p>SNS対応にOGP（Open Graph Protocol）を設定します。</p>
+
+                        <ul>
+                            <li>head要素にprefixを追加します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;head prefix=&quot;og: http://ogp.me/ns#  article: http://ogp.me/ns/article#&quot;&gt;
+
+	記事ページはarticleでいいのですがトップページはwebsiteが正しいのでトップページのみ
+	website: http://ogp.me/ns/website#としてください。
+</code>
+</pre>
+
+                        <ul>
+                            <li>特に理由がない限り、ogpの画像名をogp.pngとします。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;meta property=&quot;og:title&quot; content=&quot;xxxxx&quot;&gt;（必須）
+	&lt;meta property=&quot;og:type&quot; content=&quot;xxxxx&quot;&gt;（必須）
+	&lt;meta property=&quot;og:url&quot; content=&quot;xxxxx&quot;&gt;（必須）
+	&lt;meta property=&quot;og:image&quot; content=&quot;img/common/ogp.png&quot;&gt;（必須）
+	&lt;meta property=&quot;og:description&quot; content=&quot;xxxxx&quot;&gt;
+	&lt;meta property=&quot;og:site_name&quot; content=&quot;xxxxx&quot;&gt;
+</code>
+</pre>
+
+                        <!-- guideline-box -->
+                        <div class="guideline-box">
+                            <p class="ttl">OGP画像作成</p>
+                            <p>ogp.pngをimg/common/フォルダに作成</p>
+                            <p>サイズ（1500px × 1500px）</p>
+                            <p>OGPを作るときに利用してみてください：<a href="http://ogimage.tsmallfield.com/" target="_blank">OGP画像シミュレータ</a></p>
+                        </div>
+                        <!-- guideline-box -->
+
+                        <!-- h4 -->
+                        <h4>meta要素（viewport）</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>Webサイトを適切なサイズで表示するよう必要に応じてviewportを設定します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- デバイスの横幅に合わせる場合 --&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;
+
+	&lt;!-- PCサイトをスマホ画面内に納めたい場合 --&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=固定値, user-scalable=1&quot;&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>基本的にレスポンシブ対応で、ブレイクポイント（768px）を一つだけ設定した場合、タブレット版を作らずPC版を表示させる場合はviewport.jsを使用する</li>
+                        </ul>
+
+                        <!-- h4 -->
+                        <h4>favicons</h4>
+                        <!-- h4 -->
+
+                        <p>ブラウザ向け、スマホ向けの最低限のファビコンを設置します。<br>
+                            マルチアイコンや、各サイズに合わせて複数作成することも可能です。</p>
+
+                        <ul>
+                            <li>特に指定がない場合、以下の画像名で作成します。</li>
+                            <li>faviconのNot Found対策として、root直下にfavicon.icoを置くようにします。</li>
+                        </ul>
+
+                        <!-- guideline-box -->
+                        <div class="guideline-box">
+                            <p>favicon.ico（32px×32px）<br>
+                                apple-touch-icon.png（144px×144px）</p>
+                        </div>
+                        <!-- guideline-box -->
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- favicon --&gt;
+	&lt;link href=&quot;/favicon.ico&quot; rel=&quot;shortcut icon&quot; /&gt;
+
+	&lt;!-- apple-touch-icon--&gt;
+	&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/apple-touch-icon.png&quot;&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>CSSファイルの読み込み</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>CSSは全て外部ファイル化し、&lt;link&gt;タグでCSSファイルを読み込みます。</li>
+                            <li>CSSをHTMLに直接書き込む事は原則として禁止します。</li>
+                            <li>CSSのtype属性は省略する。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- NG --&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;//www.google.com/css/maia.css&quot; type=&quot;text/css&quot;&gt;
+
+	&lt;!-- OK --&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;//www.google.com/css/maia.css&quot;&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>webfontの読み込み</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>Font Awesomeを利用する場合は、fontawsome.jsを使用する</li>
+                        </ul>
+
+                        <ul>
+                            <li>googleフォントを利用する場合は、重くならないように種類・ウエイト数を増やさない。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- googleフォント : Open Sansの400と800を読み込んでいる--&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Open+Sans:400,800&quot; /&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>jsファイルの読み込み</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>JavaScriptはHEAD内、または&lt;/body&gt;タグの直前に記述する</li>
+                            <li>JavaScriptのtype属性は省略する。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- NG --&gt;
+	&lt;script src=&quot;js/jquery-3.5.1.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+	&lt;!-- OK --&gt;
+	&lt;script src=&quot;js/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>jQueryの読み込み</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>基本的ダウンロードして使用します。中のjsをなるべく最新verとして使用します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;!-- jQuery --&gt;
+	&lt;script&nbsp;src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4> jsプラグインの一覧</h4>
+                        <!-- h4 -->
+
+                        <p>プラグインは開発のスピードも速く、次々と新しいものが出るため、現状のものを使い続けるのではなく積極的に新しいものを取り入れましょう。<br>
+                            ただし、そのプラグインが安定しているか、要望とマッチしているかなど、検証してから実装する必要があります。</p>
+
+                        <p>以下は、社内で使用実績のあるプラグインの一覧です。<br>
+                            特に指定がない場合は、以下の中から選びます。</p>
+
+                        <p>開発としては、特に使用してはいけないJSは無くて、求められている動きが実現できれば良いとのことでした。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>スライダー</th>
+                                    <td>swiper</td>
+                                </tr>
+                                <tr>
+                                    <th>カルーセル</th>
+                                    <td>swiper</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h5 -->
+                        <h5> 文字の拡大縮小</h5>
+                        <!-- h5 -->
+
+                        <p>スクリプト<br>
+                            ※jquery.cookie.jsの読み込みも必要</p>
+
+                        <pre class="guideline-code">
+<code>
+	jQuery(function($){
+
+		var changeSize = function(size) {
+			if(size == &#039;fzM&#039;) {
+				$(&#039;html&#039;).css(&#039;font-size&#039;, &#039;62.5%&#039;);
+			}else if(size == &#039;fzL&#039;) {
+				$(&#039;html&#039;).css(&#039;font-size&#039;, &#039;90%&#039;);
+			}
+
+					var ev = jQuery.Event(&quot;changeSize&quot;);
+					$(window).trigger(ev);
+		};
+
+		var fz = $.cookie(&#039;fontSize&#039;);
+		if(fz) {
+			changeSize(fz)
+		}
+
+		var n = $.cookie(&#039;opened&#039;);
+		if ( n == null ) { n = 0;}
+		$(&#039;.fontsize dd&#039;).eq(n).addClass(&quot;active&quot;);
+
+		$(&#039;.fontsize dd&#039;).click(function() {
+
+			var thisSize = this.id;
+			var thisIndex = $(this).parent(&quot;dl&quot;).children(&quot;dd&quot;).index(this);
+
+			$(&#039;.fontsize dd&#039;).removeClass(&#039;active&#039;);
+			$(this).addClass(&#039;active&#039;);
+
+			$.cookie(&#039;fontSize&#039;, thisSize, { path: &#039;/&#039;});
+			$.cookie(&#039;opened&#039;,thisIndex, { path: &#039;/&#039;});
+
+			changeSize(thisSize);
+		});
+	});
+</code>
+</pre>
+
+                        <p>HTML</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;dl class=&quot;fontsize&quot;&gt;
+		&lt;dt&gt;文字サイズ&lt;/dt&gt;
+		&lt;dd id=&quot;fzM&quot;&gt;&lt;a href=&quot;javascript:void(0);&quot; onClick=&quot;return false&quot; class=&quot;changeBtn&quot;&gt;標準&lt;/a&gt;&lt;/dd&gt;
+		&lt;dd id=&quot;fzL&quot;&gt;&lt;a href=&quot;javascript:void(0);&quot; onClick=&quot;return false&quot; class=&quot;changeBtn&quot;&gt;拡大&lt;/a&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+</code>
+</pre>
+
+                        <p>以下は、プラグインとして配布されてはいないもので、ネットなどからのコピペで実装しているものです（※ライセンス確認済み）<br>
+                            場合によっては、バグなどある場合があります。挙動に不安があれば開発に相談してください。</p>
+
+                        <!-- h4 -->
+                        <h4>開発とのコードの共通化</h4>
+                        <!-- h4 -->
+
+                        <p>開発との話し合いで決まった、共通化するコードを以下に示します。<br>
+                            タグやクラス名など、変更不可の要素です。</p>
+
+                        <!-- h3 -->
+                        <h3>パンくず</h3>
+                        <!-- h3 -->
+
+                        <pre class="guideline-code">
+<code>
+	&lt;div class=&quot;breadCrumbs&quot;&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href=&quot;/&quot;&gt;ホーム&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;/spots/&quot;&gt;スポット&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;検索結果&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>ページング カウンター</h3>
+                        <!-- h3 -->
+
+
+                        <pre class="guideline-code">
+<code>
+	&lt;p class=&quot;counter&quot;&gt;
+		21～40件目／143件中を表示
+	&lt;/p&gt;
+	数字部分を何らかのtagで囲む(span, strong等)かどうかは予め取り決めておきたい。
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>ページング リンク</h3>
+                        <!-- h3 -->
+
+                        <pre class="guideline-code">
+<code>
+	&lt;div class=&quot;paging&quot;&gt;
+		&lt;span class=&quot;prev&quot;&gt;&lt;a href=&quot;/spots/index/keywords:&quot; rel=&quot;prev&quot;&gt;前へ&lt;/a&gt;&lt;/span&gt;
+		&lt;span&gt;&lt;a href=&quot;/spots/index/keywords:&quot;&gt;1&lt;/a&gt;&lt;/span&gt;&amp;nbsp;
+		&lt;span class=&quot;current&quot;&gt;2&lt;/span&gt;&amp;nbsp;&lt;span&gt;&lt;a href=&quot;/spots/index/page:3/keywords:&quot;&gt;3&lt;/a&gt;&lt;/span&gt;&amp;nbsp;
+		&lt;span&gt;&lt;a href=&quot;/spots/index/page:4/keywords:&quot;&gt;4&lt;/a&gt;&lt;/span&gt;&amp;nbsp;
+		&lt;span&gt;&lt;a href=&quot;/spots/index/page:5/keywords:&quot;&gt;5&lt;/a&gt;&lt;/span&gt;
+		&lt;span class=&quot;next&quot;&gt;&lt;a href=&quot;/spots/index/page:3/keywords:&quot; rel=&quot;next&quot;&gt;次へ&lt;/a&gt;&lt;/span&gt;
+	&lt;/div&gt;
+	各ページの間はデフォルト「|」だが、デザイン上制約があると思うので、「&amp;nbsp;」にした
+	このページング部分自体をよくdivで囲むので、div.pagingで囲むところまで統一化したい。(class名予め取り決めておきたい)
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>form エラーメッセージ表示</h3>
+                        <!-- h3 -->
+
+                        <pre class="guideline-code">
+<code>
+	&lt;div class=&quot;error-message&quot;&gt;入力してください&lt;/div&gt;
+	必ずdiv.error-message
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>form labelの位置</h3>
+                        <!-- h3 -->
+
+                        <pre class="guideline-code">
+<code>
+	基本的にform要素をlabelで囲まず、並べて書く。
+
+	## radio
+
+	&lt;input type=&quot;radio&quot; name=&quot;data[Event][date_choice]&quot; id=&quot;EventDateChoice1&quot; value=&quot;1&quot; checked=&quot;checked&quot; class=&quot;hogehoge&quot;&gt;
+	&lt;label for=&quot;EventDateChoice1&quot;&gt;期間指定&lt;/label&gt;
+
+	&lt;input type=&quot;radio&quot; name=&quot;data[Event][date_choice]&quot; id=&quot;EventDateChoice2&quot; value=&quot;2&quot; class=&quot;hogehoge&quot;&gt;
+	&lt;label for=&quot;EventDateChoice2&quot;&gt;テキスト入力&lt;/label&gt;
+
+	## checkbox
+
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;data[MasterSubCategory][MasterSubCategory][]&quot; checked=&quot;checked&quot; value=&quot;1&quot; id=&quot;MasterSubCategoryMasterSubCategory1&quot;&gt;
+		&lt;label for=&quot;MasterSubCategoryMasterSubCategory1&quot;&gt;神社・寺&lt;/label&gt;
+	&lt;/div&gt;
+</code>
+</pre>
+
+                        <!-- h2 -->
+                        <h2 id="guide03">CSSのルール</h2>
+                        <!-- h2 -->
+
+                        <p>スタイルシートは複雑化しやすいため、統一されたルールに則った構造設計や記述を行ってください。<br>
+                            チームで作業する場合や、他の人の案件を受け継ぐことがあることを意識してください。</p>
+
+                        <ul>
+                            <li>クラス名はわかりやすいか</li>
+                            <li>メンテナンス性・再利用性のあるCSSか</li>
+                            <li>打ち消しの必要のないCSSか</li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>注意事項</h3>
+                        <!-- h3 -->
+
+                        <p>以下の内容は一般的には使用できるものですが、スムーズなコーディングの妨げになる危険性が高い書き方ですので、本ガイドラインでは禁止もしくは慎重に対応します。</p>
+
+                        <!-- h3 -->
+                        <h3>CSSハックについて</h3>
+                        <!-- h3 -->
+
+                        <p>CSSハックを使う前に別の方法を試してみること。<br>
+                            CSSハックは、ユーザーエージェントごとの違いを吸収するためには簡単で魅力的な方法ですが、プロジェクト全体のコードの品質を落とすことにもなるので「最後の手段」として考えること。</p>
+
+                        <!-- h3 -->
+                        <h3>!importantについて</h3>
+                        <!-- h3 -->
+
+                        <p>基本的には使用しません。CSSの詳細度*を理解していれば不要です。<br>
+                            ただし、jsプラグインなどの多重に継承されているスタイルを打ち消さなければならない場合は使用可能です。</p>
+
+                        <p class="note">*CSSの詳細度<br>
+                            以下のリストは、セレクタを詳細度の小さな順に並べたものです。<br>
+                            詳細度が等しい場合は、 CSS で発見される最も後の宣言が要素に適用されます。</p>
+
+                        <ul>
+                            <li>全称セレクタ</li>
+                            <li>タイプセレクタ</li>
+                            <li>クラスセレクタ</li>
+                            <li>属性セレクタ</li>
+                            <li>擬似クラス</li>
+                            <li>ID セレクタ</li>
+                            <li>インラインスタイル</li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>汎用クラスについて</h3>
+                        <!-- h3 -->
+
+                        <p>font-size、margin、paddingの汎用クラスは基本的には使用しません。インラインスタイルばかり使用してデザインを定義している状態と同じです。<br>
+                            サイトの設計段階でパーツのモジュール化をしてください。他の人が作業する場合を考えてstyleguide*を作ることをお勧めします。<br>
+                            ただし、LPやその場限りの更新物では使用可能です。</p>
+
+                        <p class="note">*styleguide<br>
+                            スタイルガイドとはいわゆるサイトのデザインパターンやモジュールを集めたリストページで仕様や使い方、コードスニペットなどを記載したドキュメントのようなものです。<br>
+                            それぞれの用途に応じたスタイルガイドを作成します。</p>
+
+                        <ul>
+                            <li>Element.html（要素の最小単位）</li>
+                            <li>module.html（単独で機能する要素）</li>
+                            <li>form.html（フォームで使用する要素）</li>
+                        </ul>
+
+                        <!-- h3 -->
+                        <h3>命名規則</h3>
+                        <!-- h3 -->
+
+                        <p>id・class名はデザインから決めるのではなく、「何処で」「何を表現」するのかを端的な名前で表します。<br>
+                            見た目を反映させた名前や無意味な文字列ではなく、スタイルを適用する箇所がそのページにおいてどのような役割・目的をもった箇所なのかを反映さます。</p>
+
+                        <!-- h3 -->
+                        <h3>idの命名</h3>
+                        <!-- h3 -->
+
+
+                        <p>idは大枠のレイアウトを構成する要素に使用します。<br>
+                            また、ページ内リンクのアンカーとしての役割を考えて記述します。</p>
+
+                        <!-- h4 -->
+                        <h4>使用を推奨するid名</h4>
+                        <!-- h4 -->
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>ヘッダー</th>
+                                    <td>#header</td>
+                                </tr>
+                                <tr>
+                                    <th>グローバルナビ</th>
+                                    <td>#gnav</td>
+                                </tr>
+                                <tr>
+                                    <th>コンテンツ</th>
+                                    <td>#contents</td>
+                                </tr>
+                                <tr>
+                                    <th>CMS</th>
+                                    <td>#post-content</td>
+                                </tr>
+                                <tr>
+                                    <th>サイド</th>
+                                    <td>#side</td>
+                                </tr>
+                                <tr>
+                                    <th>メイン</th>
+                                    <td>#main</td>
+                                </tr>
+                                <tr>
+                                    <th>ページトップ</th>
+                                    <td>#pagetop</td>
+                                </tr>
+                                <tr>
+                                    <th>フッター</th>
+                                    <td>#footer</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>classの命名</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>id・class名は、「種類」を区分する部分と「個性」を示す部分、同様のものが複数存在する場合は「数字」で構成する</li>
+                            <li>「種類」「個性」どちらかで判別が十分可能となる場合は、「個性」を省略するができる</li>
+                            <li>「種類」と「内容」をハイフン（-）で区切り、「数字」がある場合は続けて使用しclass名とする<br>
+                                <span class="example">例）ジャンルのリスト .list-genre　、NEWアイコン .ico-new</span>
+                            </li>
+                        </ul>
+
+                        <!-- h4 -->
+                        <h4>種類の例</h4>
+                        <!-- h4 -->
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>ロゴ</th>
+                                    <td>logo</td>
+                                </tr>
+                                <tr>
+                                    <th>ナビ</th>
+                                    <td>nav</td>
+                                </tr>
+                                <tr>
+                                    <th>ページメタ</th>
+                                    <td>meta</td>
+                                </tr>
+                                <tr>
+                                    <th>ページタイトル</th>
+                                    <td>ttl-</td>
+                                </tr>
+                                <tr>
+                                    <th>ボタン</th>
+                                    <td>btn-</td>
+                                </tr>
+                                <tr>
+                                    <th>バナー</th>
+                                    <td>bnr-</td>
+                                </tr>
+                                <tr>
+                                    <th>写真</th>
+                                    <td>pht-</td>
+                                </tr>
+                                <tr>
+                                    <th>サムネイル</th>
+                                    <td>thumb-</td>
+                                </tr>
+                                <tr>
+                                    <th>アイコン</th>
+                                    <td>ico-</td>
+                                </tr>
+                                <tr>
+                                    <th>バッジ</th>
+                                    <td>badge-</td>
+                                </tr>
+                                <tr>
+                                    <th>図表など</th>
+                                    <td>pct-</td>
+                                </tr>
+                                <tr>
+                                    <th>テキスト</th>
+                                    <td>txt-</td>
+                                </tr>
+                                <tr>
+                                    <th>リンク</th>
+                                    <td>link-</td>
+                                </tr>
+                                <tr>
+                                    <th>アイキャッチ</th>
+                                    <td>eyecatch-</td>
+                                </tr>
+                                <tr>
+                                    <th>動画</th>
+                                    <td>movie-</td>
+                                </tr>
+                                <tr>
+                                    <th>地図</th>
+                                    <td>map-</td>
+                                </tr>
+                                <tr>
+                                    <th>javascriptからアクセスするクラス</th>
+                                    <td>js-</td>
+                                </tr>
+                                <tr>
+                                    <th>アニメーション効果</th>
+                                    <td>fx-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!-- h4 -->
+                        <h4>使用を推奨するクラス名</h4>
+                        <!-- h4 -->
+
+                        <p>クオリティの均一化のため、特に理由がない限り以下のクラス名を採用します。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>メニュー</th>
+                                    <td>menu</td>
+                                </tr>
+                                <tr>
+                                    <th>SNS</th>
+                                    <td>social</td>
+                                </tr>
+                                <tr>
+                                    <th>リード</th>
+                                    <td>read</td>
+                                </tr>
+                                <tr>
+                                    <th>説明・解説</th>
+                                    <td>note</td>
+                                </tr>
+                                <tr>
+                                    <th>注意書き</th>
+                                    <td>attention</td>
+                                </tr>
+                                <tr>
+                                    <th>外側の囲み</th>
+                                    <td>wrapper</td>
+                                </tr>
+                                <tr>
+                                    <th>内側の囲み</th>
+                                    <td>inner</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h4 -->
+                        <h4>取り決められたクラス名</h4>
+                        <!-- h4 -->
+
+                        <p>開発との話し合いで決まったクラス名一覧です。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>パンくず</th>
+                                    <td>.breadCrumbs</td>
+                                </tr>
+                                <tr>
+                                    <th>ページカウンター</th>
+                                    <td>.counter</td>
+                                </tr>
+                                <tr>
+                                    <th>ページング</th>
+                                    <td>.paging</td>
+                                </tr>
+                                <tr>
+                                    <th>ページング（前へ）</th>
+                                    <td>.prev</td>
+                                </tr>
+                                <tr>
+                                    <th>ページング（次へ）</th>
+                                    <td>.next</td>
+                                </tr>
+                                <tr>
+                                    <th>ページング（現在）</th>
+                                    <td>.current</td>
+                                </tr>
+                                <tr>
+                                    <th>フォームのエラーメッセージ</th>
+                                    <td>.error-message</td>
+                                </tr>
+                                <tr>
+                                    <th>フォームの必須</th>
+                                    <td>.essential</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>JavaScriptからアクセスするクラス</h3>
+                        <!-- h3 -->
+
+                        <p>JavaScriptからクラスを利用する場合は、ブロック名の前に js- をつけます。</p>
+
+                        <p>js-がついたクラスは、デザインのスタイルをあてないようにします。これはスクリプトとデザインで使用されているクラスを明確に分けるためです。<br>
+                            また、CSSファイル内にコメントを残すなどして分けて管理してください。</p>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;div class=&quot;js-hoge&quot;&gt;
+		JSで操作したい内容など
+	&lt;/div&gt;
+</code>
+</pre>
+
+                        <p>アニメーションの効果を付けるだけのクラスには fx- をつけます。</p>
+
+                        <pre class="guideline-code">
+<code>
+	/* --------------------------------------------------------------------------
+	js-style
+	-------------------------------------------------------------------------- */
+	.fx-in,
+	.fx-down,
+	.fx-up,
+	.fx-left,
+	.fx-right{
+		visibility:hidden;
+	}
+</code>
+</pre>
+
+                        <p>状態の変化を現す場合は以下のクラス名をつけます。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>アクティブ時</th>
+                                    <td>is-active</td>
+                                </tr>
+                                <tr>
+                                    <th>機能が無効になっているもの</th>
+                                    <td>is-disabled</td>
+                                </tr>
+                                <tr>
+                                    <th>表示しているもの</th>
+                                    <td>is-visible</td>
+                                </tr>
+                                <tr>
+                                    <th>非表示にしているもの</th>
+                                    <td>is-hidden</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h4 -->
+                        <h4>OK/NG例</h4>
+                        <!-- h4 -->
+
+                        <p>以下に具体例を示します。</p>
+
+                        <ul>
+                            <li>IDとクラス名にはちゃんと意味の分かる名前を使うこと。</li>
+                            <li>見た目を反映したものやそれが何を表しているか不可解な名前ではなく、要素の目的や役割を反映した名前を付ける。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG: 意味が分からない */
+	#yee-1901 {}
+
+	/* NG: 見た目を表してる */
+	.button-green {}
+	.clear {}
+	.small  {}
+	.red {}
+	.left {}
+
+	/* OK: 役割を表してる */
+	.notes {}
+	.comment {}
+	.video {}
+</code>
+</pre>
+
+                        <ul>
+                            <li>意味の分かる範囲でできるだけ短いクラス名を使う。</li>
+                            <li>短くしすぎて意味がわからなくなるようなのはNG。</li>
+                            <li>省略形が広く一般的に認知されており、使用しても不自然ではない場合は積極的に利用する。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG */
+	.introduction {}
+	.confirmation {}
+	.atr {}
+
+	/* OK */
+	.intro {}
+	.confirm {}
+	.author {}
+</code>
+</pre>
+                        <ul>
+                            <li>IDとクラス名にタイプセレクタは記述しない。</li>
+                            <li>パフォーマンスを考慮して不要な子孫セレクタも避ける。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG */
+	ul.example {}
+	div.error {}
+
+	/* OK */
+	.example {}
+	.error {}
+</code>
+</pre>
+
+                        <ul>
+                            <li>「構造の意味の判斷がつかないもの」、「構造の意味がないもの」に関しては汎用的なclassを付ける。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* OK: 汎用的な名前 */
+	.aux {}
+	.alt {}
+
+	/* OK: レイアウトのためだけのボックス */
+	.box {}
+	.unit2Col {}
+	.unit3Col {}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>書式ルール</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>CSSの定義は原則として外部CSSに記述してclass及びidで呼び出す</li>
+                            <li>HTMLに直接記述する事は原則として禁止する</li>
+                        </ul>
+
+                        <!-- h4 -->
+                        <h4>OK/NG例</h4>
+                        <!-- h4 -->
+
+                        <p>以下に具体例を示します。</p>
+
+                        <ul>
+                            <li>可能な限りショートハンドでプロパティを書く。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG */
+	border-top-style: none;
+	font-family: palatino, georgia, serif;
+	font-size: 100%;
+	line-height: 1.6;
+	padding-bottom: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0;
+
+	/* OK */
+	border-top: 0;
+	font: 100%/1.6 palatino, georgia, serif;
+	padding: 0 1em 2em;
+</code>
+</pre>
+
+                        <ul>
+                            <li>値が「0」なら単位を省略する。</li>
+                        </ul>
+
+
+                        <pre class="guideline-code">
+<code>
+	margin: 0;
+	padding: 0;
+</code>
+</pre>
+
+                        <ul>
+                            <li>小数点の頭の「0」は省略する。</li>
+                        </ul>
+
+
+                        <pre class="guideline-code">
+<code>
+	font-size: .8em;
+</code>
+</pre>
+
+                        <ul>
+                            <li>line-height に単位はつけない。</li>
+                        </ul>
+
+
+                        <pre class="guideline-code">
+<code>
+	line-heigh: 1.2;
+</code>
+</pre>
+
+                        <ul>
+                            <li>URI値の引用符省略すること。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	@import url(//www.google.com/css/go.css);
+</code>
+</pre>
+
+                        <ul>
+                            <li>HEX形式のカラーコードで3文字で表記できるものは3文字にする。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG */
+	color: #eebbcc;
+
+	/* OK */
+	color: #ebc;
+</code>
+</pre>
+
+                        <ul>
+                            <li>別々のセレクタとプロパティは改行して書くこと。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* NG */
+	a:focus, a:active {
+		position: relative; top: 1px;
+	}
+
+	/* OK */
+	h1,
+	h2,
+	h3 {
+		font-weight: normal;
+		line-height: 1.2;
+	}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>余白（マージン）の設定</h3>
+                        <!-- h3 -->
+
+                        <p>基本、emや状況に応じてパーセントを使用。pxは基本的に使わない（スマホサイズになっても極力個別に指定の必要が無いように）</p>
+
+                        <!-- h3 -->
+                        <h3>コメント</h3>
+                        <!-- h3 -->
+
+                        <p>コメントのスタイルはシンプルでかつソースコードベースの中で一貫性を保っている必要があります。</p>
+
+                        <ul>
+                            <li>HTML、セクションごとにコメントを記述する。</li>
+                            <li>だれが見てもわかりやすいようにコメントを入れること。</li>
+                            <li>コメントは例外を除いて対象になるコンポーネントの上の行に配置すること。</li>
+                            <li>折り返し行は分別のある最大行（80文字）以内におさめること。</li>
+                            <li>テキストインデントに一貫性を持たせること。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	■ htmlごとのコメント
+	/* --------------------------------------------------------------------------
+
+	index.html
+
+	-------------------------------------------------------------------------- */
+
+	■ セクションごとのコメント
+	/* --------------------------------------------------------------------------
+	header
+	-------------------------------------------------------------------------- */
+
+	■ 基本のコメント
+	/* menu */
+
+	■ 変則的なコメント
+	/*
+	* グループコメントブロック
+	* 複数行になるドキュメントや説明の際に最適
+	*/
+
+	■ メディアクエリの記述のときのコメント
+	/* tablet style */
+	@media screen and (max-width: 960px) {
+	}
+	/* mobile style */
+	@media screen and (max-width: 600px) {
+	}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>フォントファミリー</h3>
+                        <!-- h3 -->
+
+                        <p>以下は標準的なフォントファミリーの指定です。<br>
+                            ブラウザ間の差異を無くすには、webfontを推奨しますが、読み込みが重くなる点を考慮して選定してください。</p>
+
+                        <!-- h4 -->
+                        <h4>ゴシック体の指定</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>游ゴシックを最優先する場合の注意点は、Macの場合は『游ゴシックのミディアム』、Windowsの場合は『游ゴシックの細字』がデフォルトなのを考慮して、font-weight: 500;を必ず追加します。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	body {
+		font-family: &quot;游ゴシック体&quot;, &quot;Yu Gothic&quot;, YuGothic, &quot;ヒラギノ角ゴ Pro&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, &quot;メイリオ&quot;, &quot;Meiryo&quot;, sans-serif;
+		font-weight: 500;
+	}
+</code>
+</pre>
+                        <ul>
+                            <li>全デバイス対応の場合（Noto Sans JP）</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;link href=&quot;https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&amp;amp;subset=japanese&quot; rel=&quot;stylesheet&quot;&gt;
+
+	body {
+		font-family: &quot;Noto Sans JP&quot; , &quot;ヒラギノ角ゴ Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, &quot;游ゴシック&quot;, &quot;Yu Gothic&quot;, &quot;メイリオ&quot;, Meiryo, Osaka, sans-serif;
+	}
+</code>
+</pre>
+
+
+                        <!-- h4 -->
+                        <h4>明朝体の指定</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>明朝体はほとんどのアンドロイドに対応していません。</li>
+                            <li>明朝体は小さなサイズになると読みにくいので、見出しなどに限定して使う方がいいです。</li>
+                            <li>游明朝・ヒラギノ明朝は小さな文字でもアンチエイリアスがかかります。</li>
+                            <li>HG明朝は13pxからアンチエイリアスがかかります。</li>
+                            <li>MS 明朝は20数pxからアンチエイリアスがかかります。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	font-family: &quot;游明朝&quot;, YuMincho, &quot;ヒラギノ明朝 ProN W3&quot;, &quot;Hiragino Mincho ProN&quot;, &quot;HG明朝E&quot;, &quot;ＭＳ Ｐ明朝&quot;, &quot;ＭＳ 明朝&quot;, serif;
+</code>
+</pre>
+
+                        <ul>
+                            <li>全デバイス対応の場合（Noto Serif JP）</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;link href=&quot;https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&amp;amp;subset=japanese&quot; rel=&quot;stylesheet&quot;&gt;
+
+	body {
+		font-family: &#039;Noto Serif JP&#039;, &quot;游明朝&quot;, YuMincho, &quot;ヒラギノ明朝 ProN W3&quot;, &quot;Hiragino Mincho ProN&quot;, &quot;HG明朝E&quot;, &quot;ＭＳ Ｐ明朝&quot;, &quot;ＭＳ 明朝&quot;, serif;
+	}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>文字サイズ指定</h3>
+                        <!-- h3 -->
+
+                        <p>対象ブラウザで問題の無い限り、rem*単位で制作します。<br>
+                            また、以下のように設定することによって、1rem ＝ 10px として計算することができます。</p>
+
+                        <pre class="guideline-code">
+<code>
+	html{ font-size: 62.5% ;} /*初期値16pxの62.5%でルートが10px*/
+	body { font-size: 1.8rem;}/*18px*/
+</code>
+</pre>
+
+                        <p class="note">*remとは「rem」とは、「root」+「em」という意味で、root要素（html要素）に対して相対的にフォントサイズが指定できます。</p>
+
+                        <p>デバイス別推奨フォントサイズは下記を基準として、案件に沿って設定します。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>スマートフォン</th>
+                                    <td>1.4rem〜1.6rem</td>
+                                </tr>
+                                <tr>
+                                    <th>タブレット端末</th>
+                                    <td>1.6rem以上</td>
+                                </tr>
+                                <tr>
+                                    <th>デスクトップ</th>
+                                    <td>1.6rem以上</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>デフォルトスタイルの調整について</h3>
+                        <!-- h3 -->
+
+                        <p>クオリティの均一化のため、特に理由がない限り以下のデフォルトスタイルを採用します。</p>
+
+                        <pre class="guideline-code">
+<code>
+	/* --------------------------------------------------
+	reset
+	-------------------------------------------------- */
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  font: inherit;
+	  font-size: 100%;
+	}
+
+	html {
+	  line-height: 1;
+	}
+
+	ol, ul {
+	  list-style: none;
+	}
+
+	table {
+	  border-collapse: collapse;
+	  border-spacing: 0;
+	}
+
+	caption, th, td {
+	  text-align: left;
+	  font-weight: normal;
+	  vertical-align: middle;
+	}
+
+	q, blockquote {
+	  quotes: none;
+	}
+	q:before, q:after, blockquote:before, blockquote:after {
+	  content: &quot;&quot;;
+	  content: none;
+	}
+
+	img,a {
+	  vertical-align:top;
+	}
+
+	a img {
+	  border: none;
+	}
+
+	article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	  display: block;
+	}
+
+	/* --------------------------------------------------
+	html
+	-------------------------------------------------- */
+
+	html{
+	  font-size: 62.5%;
+	  height:100%;
+	}
+
+	/* --------------------------------------------------
+	body
+	-------------------------------------------------- */
+
+	body {
+	  font-family:&quot;ヒラギノ角ゴ Pro&quot;,&quot;ヒラギノ角ゴ ProN&quot;,&quot;游ゴシック体&quot;, &quot;Yu Gothic&quot;, &quot;メイリオ&quot;, Meiryo, Arial, Roboto, &quot;Droid Sans&quot;, &quot;ＭＳ Ｐゴシック&quot;,&quot;MS PGothic&quot;,sans-serif;
+	  font-size: 1.4rem;
+	  line-height:1.6;
+	  -webkit-text-size-adjust: 100%;
+	  height:100%;
+	}
+</code>
+</pre>
+
+
+                        <!-- h3 -->
+                        <h3>formのスタイル</h3>
+                        <!-- h3 -->
+
+                        <p>フォームの要素については、全てのデバイスでの検証が難しいため、できるだけ無難なスタイリングをする必要があります。<br>
+                            特にスマホの場合、表示されないことや入力が不可能になるケースがあることを意識しましょう。</p>
+
+                        <!-- h4 -->
+                        <h4>formのリセット</h4>
+                        <!-- h4 -->
+
+                        <p>最低限のリセットだけで有効な場合と、デザインを再現するためにデフォルトのスタイルを無効にする方法があります。<br>
+                            場合によって使い分けてください。</p>
+
+                        <ul>
+                            <li>最低限のリセットを設定する。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* --------------------------------------------------
+	form
+	-------------------------------------------------- */
+
+	button, fieldset, form, input, label, legend, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	}
+
+	fieldset {
+	border: none;
+	display: block;
+	}
+
+	label {
+	cursor: pointer;
+	}
+
+	textarea {
+	overflow: auto;
+	}
+</code>
+</pre>
+                        <ul>
+                            <li>各要素のデフォルトスタイルを削除する。</li>
+                        </ul>
+
+
+                        <pre class="guideline-code">
+<code>
+	input, button, textarea, select {
+		margin: 0;
+		padding: 0;
+		background: none;
+		border: none;
+		border-radius: 0;
+		outline: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	  }
+</code>
+</pre>
+
+                        <ul>
+                            <li>IEのinput要素に出てくるマークを消去</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	/* text */
+	input::-ms-clear {
+		visibility: hidden;
+	}
+
+	/* password */
+	input::-ms-reveal {
+		visibility: hidden;
+	}
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>属性セレクタについて</h4>
+                        <!-- h4 -->
+
+                        <p>属性セレクタタを活用することで、classを付けなくてもそれぞれの要素に独自のスタイルを適用させることができます。</p>
+
+                        <pre class="guideline-code">
+<code>
+	/*一行テキストボックス*/
+	input[type=&quot;text&quot;] {
+	}
+
+	/*ラジオボタン*/
+	input[type=&quot;radio&quot;] {
+	}
+
+	/*チェックボックス*/
+	input[type=&quot;checkbox&quot;] {
+	}
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>フォームにフォーカスした時の自動ズーム問題を回避する</h4>
+                        <!-- h4 -->
+
+                        <p>フォームのフォントサイズが16px以上だと自動ズームは発生しなくなります。</p>
+
+                        <pre class="guideline-code">
+<code>
+	input{
+		font-size: 1.6rem;
+	}
+</code>
+</pre>
+                        <!-- h4 -->
+                        <h4>textareaのリサイズ機能を制限する</h4>
+                        <!-- h4 -->
+
+                        <pre class="guideline-code">
+<code>
+	/* 横のみリサイズ可 */
+	textarea {
+	  resize: horizontal;
+	}
+
+	/* 縦のみリサイズ可 */
+	textarea {
+	  resize: vertical;
+	}
+
+	/* 縦横ともにリサイズ不可 */
+	textarea {
+	  resize: none;
+	}
+
+	/* リサイズの最小値と最大値を指定 */
+	textarea {
+	  min-width: 250px;
+	  max-width: 500px;
+	  min-height: 100px;
+	  max-height: 250px;
+	}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>レスポンシブ対応</h3>
+                        <!-- h3 -->
+
+                        <p>主要端末を意識したブレイクポイントを設定します。<br>
+                            画面を縮小した時も全体が可変して表示されるように、リキッドでコーディングする</p>
+                        <p class="note">※画面を縮小した時も見切れないようにする</p>
+
+                        <!-- h4 -->
+                        <h4>主要端末のブラウザサイズ（2021年現在）</h4>
+                        <!-- h4 -->
+
+                        <p>日本で使われているパソコンのサイズは「1920×1080」「1366×768」が最も高いシェアとなっています。<br>
+                            スマートフォンのサイズは「375×667」のシェアが高くなっています。Androidのスマートフォンは画面サイズが一定ではないため、「横幅400」と考えられます。<br>
+                            そのため、最適なWebデザインのサイズは「横幅375px」または「横幅400px」と言えるでしょう。</p>
+
+                        <p><a href="https://web-camp.io/magazine/archives/63445" target="_blank">参考：Webデザインの最適なサイズを解説</a></p>
+
+                        <div id="mobile_resolution-JP-monthly-202009-202109" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart -->
+                        <p>Source: <a href="https://gs.statcounter.com/screen-resolution-stats/mobile/japan">StatCounter Global Stats - Screen Resolution Market Share</a></p>
+                        <script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script>
+                        <script type="text/javascript" src="https://gs.statcounter.com/chart.php?mobile_resolution-JP-monthly-202009-202109&chartWidth=600"></script>
+
+                        <div id="tablet-resolution-JP-monthly-202009-202109" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart -->
+                        <p>Source: <a href="https://gs.statcounter.com/screen-resolution-stats/tablet/japan">StatCounter Global Stats - Screen Resolution Market Share</a></p>
+                        <script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script>
+                        <script type="text/javascript" src="https://gs.statcounter.com/chart.php?tablet-resolution-JP-monthly-202009-202109&chartWidth=600"></script>
+                        <!--
+					<table>
+						<tbody>
+							<tr>
+								<td>320px</td>
+							</tr>
+							<tr>
+								<td>360px</td>
+							</tr>
+							<tr>
+								<td>375px</td>
+							</tr>
+							<tr>
+								<td>390px</td>
+							</tr>
+							<tr>
+								<td>375px</td>
+							</tr>
+							<tr>
+								<td>414px</td>
+							</tr>
+							<tr>
+								<td>768px</td>
+							</tr>
+						</tbody>
+					</table> -->
+
+                        <!-- h4 -->
+                        <h4>タブレットをPCと同じ表示にする場合</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>モバイルファーストで記述するのはメンテナンスが難しいので、PCから記述する。</li>
+                            <li>PC版をタブレットで見た時に拡大されるのを防ぐため、viewportを変更するjsを追加する必要がある。</li>
+                        </ul>
+
+                        <p><a href="https://gs.statcounter.com/screen-resolution-stats/desktop/japan" target="_blank">https://gs.statcounter.com/screen-resolution-stats/desktop/japan</a></p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>スマホ縦</th>
+                                    <td>SP版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>スマホ横</th>
+                                    <td>SP版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>タブレット縦</th>
+                                    <td>PC版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>タブレット横</th>
+                                    <td>PC版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>PC</th>
+                                    <td>PC版表示</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <pre class="guideline-code">
+<code>
+	/* 共通スタイル(PC向けスタイル) */
+	　：　：　：
+
+	/* スマートフォン向けスタイル */
+	@media screen and (max-width: 768px) {
+	}
+</code>
+</pre>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;script&gt;
+	//viewport
+	if (navigator.platform == "iPad" || (navigator.platform == "MacIntel" && navigator.userAgent.indexOf("Safari") != -1 && navigator.userAgent.indexOf("Chrome") == -1 && navigator.standalone !== undefined) || (navigator.userAgent.indexOf('Android') &gt; 0 && navigator.userAgent.indexOf('Mobile') == -1)) {
+		document.head.insertAdjacentHTML('beforeend', '&lt;meta name="viewport" content="width=1500"&gt;');
+	} else {
+		document.head.insertAdjacentHTML('beforeend', '&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;');
+	}
+	&lt;/script&gt;
+</code>
+</pre>
+
+                        <!-- h4 -->
+                        <h4>フルレスポンシブにする場合</h4>
+                        <!-- h4 -->
+
+                        <ul>
+                            <li>モバイルファーストで記述するのはメンテナンスが難しいので、PCから記述する。</li>
+                        </ul>
+
+                        <p>※基本的に、ブレークポイント（メディアクエリ）はmax-widthを使用し、min-widthは使用しない。</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>スマホ縦</th>
+                                    <td>SP版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>スマホ横</th>
+                                    <td>TB版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>タブレット縦</th>
+                                    <td>TB版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>タブレット横</th>
+                                    <td>PC版表示</td>
+                                </tr>
+                                <tr>
+                                    <th>PC</th>
+                                    <td>PC版表示</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <pre class="guideline-code">
+<code>
+	/* 共通スタイル(PC向けスタイル) */
+	　：　：　：
+
+	/* タブレット以下向けスタイル */
+	@media screen and (max-width: 900px) {
+	}
+
+	/* スマートフォン向けスタイル */
+	@media screen and (max-width: 768px) {
+	}
+</code>
+</pre>
+
+                        <!-- h3 -->
+                        <h3>印刷対応</h3>
+                        <!-- h3 -->
+
+                        <ul>
+                            <li>CSSファイルを別に作ってlink media=&quot;print&quot;で読み込む。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;print&quot; href=&quot;print.css&quot;&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>印刷時に非表示にしたい要素やコンポーネントを指定。</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	#header, #footer, #SideBar,等など{display:none;}
+</code>
+</pre>
+
+                        <ul>
+                            <li>印刷ボタンの設置</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	&lt;a onclick=&quot;window.print(); return false;&quot; href=&quot;javascript:void(0)&quot;&gt;このページを印刷する&lt;/a&gt;
+</code>
+</pre>
+
+                        <ul>
+                            <li>改ページ</li>
+                        </ul>
+
+                        <pre class="guideline-code">
+<code>
+	.sheet  {
+		page-break-after: always; //その位置で強制的に改ページさせる
+		page-break-after: avoid; //その位置での改ページを避ける
+	}
+</code>
+</pre>
+
+                    </div>
+                    <!-- wysiwyg -->
+
+                </article>
+                <!-- post-content -->
+
+                <!-- btn-postback -->
+                <p class="btn-postback"><a href="../@guidelines/index.html">ガイドラインに戻る</a></p>
+                <!-- btn-postback -->
+
+            </div>
+
+        </div>
+        <!--contents-->
+        <footer id="footer">
+
+            <!-- page-top -->
+            <div class="page-top">
+                <a href="#"></a>
+            </div>
+            <!-- page-top -->
+
+        </footer>
+
+    </div>
+    <!-- wrapper -->
+
+</body>
+
+</html>

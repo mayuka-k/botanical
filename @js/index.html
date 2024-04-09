@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/js.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/57850ff175.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="c-page-sub">
+
+    <main class="c-page-sub__content">
+        <article class="c-page-sub__content-detail">
+            <div class="c-content-main">
+
+                <div class="dev-nav">
+                    <h6><a href="index.html">JQUERY</a></h6>
+                    <ul>
+                        <li><a href="#13">resize、画面サイズを変えた時に適用されるjquery<!-- <span class="new-i">NEW</span> --></a></li>
+                        <li><a href="#12">画像をPC版とSP版出し分ける</a></li>
+                        <li><a href="#10">jquery3系を使う際の注意点</a></li>
+                        <li><a href="#11">アコーディオン</a></li>
+                        <li><a href="#7">タブ切り替え</a></li>
+                        <li><a href="#8">文字数制限（3点リーダー）</a></li>
+                        <li><a href="#9">スマホ、タブレット、PCにそれぞれ分岐させる</a></li>
+                        <li><a href="#1">背景色変更用</a></li>
+                        <li><a href="#2">iPad（iPadOS対応）でPC表示にする</a></li>
+                        <li><a href="#3">ヘッダーが追従するサイトのアンカー位置調整【決定版</a></li>
+                        <li><a href="#4">アクセシビリティ対応時のスムーススクロールJSの記入例</a></li>
+                        <li><a href="#5">似たようなつくりの静的ページならJSで出し分けれます</a></li>
+                        <li><a href="#6">.ready(function(){や.load(function(){の使い分け</a></li>
+                    </ul>
+                    <h6><a href="animation/index.html">アニメーション</a></h6>
+                    <h6><a href="accessibility/index.html">アクセシビリティ</a></h6>
+                </div>
+
+
+                <!-- A.見出し -->
+                <div class="dev-heading-01">JQUERY</div>
+
+                <h2 id="13" class="heading-h2">resize、画面サイズを変えた時に適用されるjquery</h2>
+
+                <p>CSSのメディアクエリと同じように、リロードせずに画面サイズを変えた時に実行するJSです</p>
+
+                <p>resizeを使うことで実現できます。↓は読み込んだときと、画面サイズを変えたときに動きます。画面サイズを変えたときにロゴをPC版、SP版と出し分けています</p>
+
+                <p><a href="http://dev019.coara.or.jp/itou/resize/">実際の使用例</a></p>
+
+                <pre class="dev-markup">
+					<code class="language-markup">
+$(window).on('load resize', function () {
+	if ($(window).width() &lt;= 768) {
+		$('h1 img').each(function(){
+			\\ スマホサイズのとき
+		})
+	} else if ($(window).width() > 768) {
+		$('h1 img').each(function(){
+			\\ PCサイズのとき
+		})
+	}
+});
+					</code>
+				</pre>
+
+                <p>従来のやり方↓</p>
+
+                <pre class="dev-markup">
+					<code class="language-markup">
+if ($(window).width() &lt; 768) {
+
+}
+					</code>
+				</pre>
+
+                <h2 id="12" class="heading-h2">画像をPC版とSP版出し分ける</h2>
+
+                <p>簡単な記述で、スライダーの画像をPC版とSP版で出しわけすることができます！スライダーを２つ設置するようなことは必要ありません</p>
+
+                <p>参考：<a href="https://www.qtnet.co.jp/shougi/" target="_blank">https://www.qtnet.co.jp/shougi/</a></p>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+	<code class="language-markup">
+		// 切り替える対象にclass属性。
+		var $elem = $('.img-c');
+		// 切り替えの対象のsrc属性の末尾の文字列。
+		var sp = '_sp.';
+		var pc = '_pc.';
+		// 画像を切り替えるウィンドウサイズ。
+		var replaceWidth = 768;
+
+		function imageSwitch() {
+			// ウィンドウサイズを取得する。
+			var windowWidth = parseInt($(window).width());
+
+			// ページ内にあるすべての`.switch`に適応される。
+			$elem.each(function () {
+				var $this = $(this);
+				// ウィンドウサイズが768px以上であれば_spを_pcに置換する。
+				if (windowWidth >= replaceWidth) {
+					$this.attr('src', $this.attr('src').replace(sp, pc));
+
+					// ウィンドウサイズが768px未満であれば_pcを_spに置換する。
+				} else {
+					$this.attr('src', $this.attr('src').replace(pc, sp));
+				}
+			});
+		}
+		imageSwitch();
+
+		// 動的なリサイズは操作後0.2秒経ってから処理を実行する。
+		var resizeTimer;
+		$(window).on('resize', function () {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function () {
+				imageSwitch();
+			}, 200);
+		});
+</code></pre>
+
+                <p>説明：「$('.slider img')」に出しわけしたい画像のパスを記述します。SP版はPC版の画像の名前の末尾に「_sp.jpg」と記入してください</p>
+                <p>※注意：リロードしたら画像が出しわけられます</p>
+
+                <h2 id="10" class="heading-h2">jquery3系を使う際の注意点</h2>
+
+                <p><a href="https://jquery.com/download/" target="_blank">jqueryダウンロード</a></p>
+
+                <p>これまで使用していた2系のJqueryとの大きな違いは、jqueryの読み込む際の記述の違い（.load()、.unload()、.error()の廃止）です</p>
+
+                <p>「$(window).load(function(){});」ではなく</p>
+
+                <pre class="dev-markup"><code class="language-markup">
+					$(window).on(“load”,function(){});</code></pre>
+                ※基本的には、$(window).on(～という書き方に変更すればいいです
+
+                <p>「$(document).ready(function(){});」ではなく</p>
+
+                <pre class="dev-markup"><code class="language-markup">
+					$(function(){});</code></pre>
+
+                <h4 class="heading-h4">サポートブラウザについて</h4>
+
+                <ol>
+                    <li>・IE9 以降</li>
+                    <li>・Chrome、Edge、Firefox、Safari の最新版とそのひとつ前のバージョン</li>
+                    <li>・Operaの最新版</li>
+                    <li>・iOS 7 以上のモバイルSafari</li>
+                    <li>・Android 4.0以上</li>
+                </ol>
+
+                <h4 class="heading-h4">基本的には上記注意すればいいと思います。その他注意点を知りたい方は以下を参照ください</h4>
+
+                <ol>
+                    <li><a href="https://nxpg.net/blog/tech/?p=7862" target="_blank">https://nxpg.net/blog/tech/?p=7862</a></li>
+                    <!-- <li><a href="https://nxpg.net/blog/tech/?p=7862" target="_blank">https://nxpg.net/blog/tech/?p=7862</a></li> -->
+                </ol>
+
+                <h2 id="11" class="heading-h2">アコーディオン</h2>
+
+                <h4 class="heading-h4">その１</h4>
+
+                <div class="ac-area01">
+                    <dl class="accordion">
+                        <dt>アコーディオンタイトル</dt>
+                        <dd>アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</dd>
+                        <dt>アコーディオンタイトル</dt>
+                        <dd>アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</dd>
+                        <dt>アコーディオンタイトル</dt>
+                        <dd>アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</dd>
+                        <dt>アコーディオンタイトル</dt>
+                        <dd>アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</dd>
+                        <dt>アコーディオンタイトル</dt>
+                        <dd>アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</dd>
+                    </dl>
+                </div>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+					<code class="language-markup">
+&lt;dl class="accordion"&gt;
+	&lt;dt&gt;アコーディオンタイトル&lt;/dt&gt;
+	&lt;dd&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/dd&gt;
+	&lt;dt&gt;アコーディオンタイトル&lt;/dt&gt;
+	&lt;dd&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/dd&gt;
+	&lt;dt&gt;アコーディオンタイトル&lt;/dt&gt;
+	&lt;dd&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/dd&gt;
+	&lt;dt&gt;アコーディオンタイトル&lt;/dt&gt;
+	&lt;dd&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/dd&gt;
+	&lt;dt&gt;アコーディオンタイトル&lt;/dt&gt;
+	&lt;dd&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/dd&gt;
+&lt;/dl&gt;
+				</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+	<code class="language-markup">
+		//初期表示
+		$('dl.accordion dd').css("display", "none");
+
+		//アコーディオンjs
+		$('dl.accordion dt').click(function (e) {
+			$(this).next("dd").slideToggle();
+			$(this).toggleClass("active");
+		});
+</code></pre>
+
+                <script>
+                    //初期表示
+                    $('dl.accordion dd').css("display", "none");
+
+                    //アコーディオンjs
+                    $('dl.accordion dt').click(function (e) {
+                        $(this).next("dd").slideToggle();
+                        $(this).toggleClass("active");
+                    });
+                </script>
+
+                <h4 class="heading-h4">その２</h4>
+
+                <div class="ac-area02">
+                    <h5 class="ac-p">アコーディオンタイトルアコーディオンタイトル</h5>
+                    <p class="ac-c">アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</p>
+                    <h5 class="ac-p">アコーディオンタイトルアコーディオンタイトル</h5>
+                    <p class="ac-c">アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</p>
+                    <h5 class="ac-p">アコーディオンタイトルアコーディオンタイトル</h5>
+                    <p class="ac-c">アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト</p>
+                </div>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+					<code class="language-markup">
+&lt;h5 class="ac-p"&gt;アコーディオンタイトルアコーディオンタイトル&lt;/h5&gt;
+&lt;p class="ac-c"&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/p&gt;
+&lt;h5 class="ac-p"&gt;アコーディオンタイトルアコーディオンタイトル&lt;/h5&gt;
+&lt;p class="ac-c"&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/p&gt;
+&lt;h5 class="ac-p"&gt;アコーディオンタイトルアコーディオンタイトル&lt;/h5&gt;
+&lt;p class="ac-c"&gt;アコーディオンテキストアコーディオンテキストアコーディオンテキストアコーディオンテキスト&lt;/p&gt;
+					</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+	<code class="language-markup">
+//初期表示
+$('.ac-c').css("display", "none");
+
+//アコーディオンjs
+$('.ac-p').click(function (e) {
+	$(this).next(".ac-c").slideToggle();
+	$(this).toggleClass("active");
+});
+</code></pre>
+
+
+                <script>
+                    //初期表示
+                    $('.ac-c').css("display", "none");
+
+                    //アコーディオンjs
+                    $('.ac-p').click(function (e) {
+                        $(this).next(".ac-c").slideToggle();
+                        $(this).toggleClass("active");
+                    });
+                </script>
+
+                <h2 id="7" class="heading-h2">タブ切り替え</h2>
+
+                <p>タブ切り替えのJSで使いやすい簡単なスクリプトを作りましたので共有します。<br>タブを複数設置すると、他のタブと連動して動いてしまったり、idを振ったりする余計な手間がいりません。</p>
+
+                <h4 class="heading-h4">実装例</h4>
+
+                <p><a href="http://dev019.coara.or.jp/itou/jquery/tab-change/tab.html" target="_blank">http://dev019.coara.or.jp/itou/jquery/tab-change/tab.html</a></p>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+				<code class="language-markup">
+&lt;ul class="btn-tab"&gt;
+	　&lt;li&gt;&lt;a class="active" href=""&gt;Aグループ&lt;/a&gt;&lt;/li&gt;
+	　&lt;li&gt;&lt;a href=""&gt;Bグループ&lt;/a&gt;&lt;/li&gt;
+	　&lt;li&gt;&lt;a href=""&gt;Cグループ&lt;/a&gt;&lt;/li&gt;
+	　&lt;li&gt;&lt;a href=""&gt;Dグループ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-contents"&gt;
+	　&lt;div class="active"&gt;
+		　　Aグループ
+		　&lt;/div&gt;
+	　&lt;div&gt;
+		　　Bグループ
+		　&lt;/div&gt;
+	　&lt;div&gt;
+		　　Cグループ
+		　&lt;/div&gt;
+	　&lt;div&gt;
+		　　Dグループ
+		　&lt;/div&gt;
+&lt;/div&gt;
+			</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+$('ul.btn-tab li a').click(function (e) {
+　num = $(this).parent('li').index();
+　$(this).addClass('active').parent().siblings().children().removeClass('active');
+　$(this).parent().parent().next('.tab-contents').children('div').removeClass('active').eq(num).addClass('active');
+　e.preventDefault();
+});
+			</code></pre>
+
+                <h5 class="heading-h5">その他例</h5>
+
+                <p>・タブの入れ子</p>
+                <p><a href="http://dev019.coara.or.jp/itou/jquery/tab-change/tab_ireko.html" target="_blank">http://dev019.coara.or.jp/itou/jquery/tab-change/tab_ireko.html</a></p>
+
+                <p>・アンカーでタブ切り替え</p>
+                <p><a href="http://dev019.coara.or.jp/itou/jquery/tab-change2/index.html" target="_blank">http://dev019.coara.or.jp/itou/jquery/tab-change2/index.html</a></p>
+
+
+                <h2 id="8" class="heading-h2">文字数制限JS（3点リーダー）</h2>
+
+                <pre class="dev-markup">
+				<code class="language-markup">
+$(function(){
+	$(".memberName").each(function(){
+		if ($(this).text().length > 10) {
+		$(this).text($(this).text().substr(0, 9));
+		$(this).append('…');
+		}
+	});
+});
+				</code>
+				</pre>
+
+
+                <h2 id="9" class="heading-h2">スマホ、タブレット、PCにそれぞれ分岐させる</h2>
+
+                <p>・スマホを判別する方法</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0 &&
+navigator.userAgent.indexOf('Mobile') > 0) {
+	// スマートフォン向けの記述
+	} else {
+	// スマホ以外
+}
+</code>
+</pre>
+
+                <pre class="dev-markup">
+<code class="language-markup">
+if ($(window).width() &lt; 768) {
+
+}
+</code>
+</pre>
+
+                <p>・タブレットを判別する方法</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+if (navigator.platform == "iPad" || (navigator.platform == "MacIntel" && navigator.userAgent.indexOf("Safari") != -1 &&
+navigator.userAgent.indexOf("Chrome") == -1 && navigator.standalone !== undefined) ||
+(navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') == -1)) {
+　　　　// タブレット向けの記述
+}
+</code>
+</pre>
+
+                <p>・タブレット、スマホかPCを判別する方法</p>
+
+                <pre class="dev-markup">
+<code class="language-markup">
+if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0 &&
+navigator.userAgent.indexOf('Mobile') > 0 || navigator.platform == "iPad" || (navigator.platform == "MacIntel" &&
+navigator.userAgent.indexOf("Safari") != -1 && navigator.userAgent.indexOf("Chrome") == -1 && navigator.standalone !==
+undefined) || (navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') == -1)) {
+　　　　// タブレット、スマホ向けの記述
+}
+</code>
+</pre>
+
+
+                <h2 id="1" class="heading-h2">背景色変更用js</h2>
+
+                <p>これまで全ページにスクリプトを記載して、CSSの階層を変更する必要がありましたが、ヘッダーのCSSのパスのみ変更すれば、JSのパスも書き換わるよう修正しました。
+                    それぞれ色変更用のCSSをCSSフォルダに置いて、（style_default.css、style_black.css、style_blue.css、style_yellow.css）
+                    以下のスクリプトをcommon.jsに加えてください。（jsフォルダ内に入れる）
+                    あと、「jquery.cookie.js」をヘッダーに追加する必要があります。</p>
+
+                <h3 class="heading-h3">使用するスクリプト(以下をcommon.jsに加えてください)</h3>
+
+                <p>白、黒、青、黄色ボタンを使う想定で書いていますが、少なくてもそのままで大丈夫です。</p>
+
+                <pre class="dev-markup"><code class="language-markup">
+$(function(){
+
+var normal = $("#default");/*　normalボタン　*/
+var black = $("#black");/*　黒ボタン　*/
+var blue = $("#blue");/*　青ボタン　*/
+var yellow = $("#yellow");/*　黄ボタン　*/
+var change = $("#changestyle");/*　cssのid　*/
+
+var href = $("#changestyle").attr('href');
+var number = href.indexOf('css/');
+var path = href.substr(0,number);
+
+　　var cookie = $.cookie("cookie",{path:'/'});/*　クッキー　*/
+
+　　var color;/*　色　*/
+
+　　if(cookie){
+　　　color = cookie;
+　　　colorChange(color);
+　　};
+
+normal.click(function(){
+　　　color = "normal";
+　　　colorChange(color);
+　　　cookie = $.cookie("cookie","normal",{path:'/'});
+});
+
+black.click(function(){
+　　　color = "black";
+colorChange(color);
+　　　cookie = $.cookie("cookie","black",{path:'/'});
+});
+
+blue.click(function(){
+　　　color = "blue";
+colorChange(color);
+　　　cookie = $.cookie("cookie","blue",{path:'/'});
+});
+
+yellow.click(function(){
+color = "yellow";
+colorChange(color);
+　　　cookie = $.cookie("cookie","yellow",{path:'/'});
+});
+
+function colorChange(color){
+　　　if(color == "black"){
+　　　　change.attr('href', path+'css/style_black.css');
+　　　} else if(color == "blue"){
+　　　　change.attr('href', path+'css/style_blue.css');
+　　　} else if(color == "yellow"){
+　　　　change.attr('href', path+'css/style_yellow.css');
+　　　} else {
+change.attr('href', path+'css/style_default.css');
+　　　}
+}
+
+});
+			</code></pre>
+
+                <h3 class="heading-h3">html</h3>
+
+                <p>ヘッダーにCSSをリンクさせる</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+&lt;link rel="stylesheet" href="css/style_default.css" id="changestyle"&gt;</code>
+			</pre>
+
+                <p>各色変更ボタンを設置<br>
+                    （各id名、&lt;a href="javascript:void(0);"&gt; ）を書けばどんな組み方でも使用可能です。）</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+&lt;dl class="bgColor"&gt;
+	　　&lt;dt&gt;色の変更&lt;/dt&gt;
+	　　&lt;dd class="white"&gt;&lt;a href="javascript:void(0);" id="default"&gt;白&lt;/a&gt;&lt;/dd&gt;
+	　　&lt;dd class="black"&gt;&lt;a href="javascript:void(0);" id="black"&gt;黒&lt;/a&gt;&lt;/dd&gt;
+	　　&lt;dd class="blue"&gt;&lt;a href="javascript:void(0);" id="blue"&gt;青&lt;/a&gt;&lt;/dd&gt;
+	　　&lt;dd class="yellow"&gt;&lt;a href="javascript:void(0);" id="yellow"&gt;黄&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+			</code>
+			</pre>
+
+                <h3 class="heading-h3">使用例</h3>
+
+                <p><a href="http://dev019.coara.or.jp/itou/color/" target="_blank">http://dev019.coara.or.jp/itou/color/</a></p>
+
+                <h2 id="2" class="heading-h2">iPad（iPadOS対応）でPC表示にする</h2>
+
+                <p>2019年9月にリリースされたiPadのiOS13ですが、iOSとは別のiPadOSが使われるようになり、macOS上のSafariとiPadOS上のSafariでは見分けがつかなくなってしまいました。<br>そこで下記の通り、スクリプトを修正したので従来のスクリプトと差し替えてヘッダー部分に記述してください。
+                </p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+if (navigator.platform == "iPad" || (navigator.platform == "MacIntel" && navigator.userAgent.indexOf("Safari") != -1 &&
+navigator.userAgent.indexOf("Chrome") == -1 && navigator.standalone !== undefined) ||(navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') == -1)) {
+document.head.insertAdjacentHTML('beforeend','&lt;meta name="viewport" content="width=1600"&gt;');
+} else {document.head.insertAdjacentHTML('beforeend','&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;');}
+			</code>
+			</pre>
+
+                <p>※従来通り「width=」の箇所には、iPadで閲覧する際に表示させたいPCの幅を記入ください。</p>
+
+                <h2 id="3" class="heading-h2">ヘッダーが追従するサイトのアンカー位置調整【決定版】</h2>
+
+                <p>スクロールに合わせてグローバルメニューが追従するサイトで、従来のjqueryでは別ページへ、アンカーリンクの際に動きませんでたが今回改良しました</p>
+
+                <!-- <p>スクロールに合わせてグローバルメニューが追従するサイトの動的ページ（wysiwyg）で、アンカーリンク先がグローバルメニューで隠れてしまう問題がありましたので、以下スクリプトを共有します</p> -->
+
+                <p>使い方としては、「headerHight」に追従するグローバルメニューの値を入力してください。</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+// アンカーリンク用　追従メニューの高さ分アンカーをずらす
+$(function () {
+
+	var headerHight; //ヘッダの高さ
+	headerHight = 150; //グローバルメニューの高さを入力してください
+
+	if($(window).width() &lt; 768){ headerHight=60; }　//スマホで追従する場合はここに値を入れてください
+
+	//今回追加
+	if(location.hash.indexOf("#") > -1){
+		var position = $(location.hash).offset().top-headerHight*2;
+		$("html, body").animate({scrollTop:position}, 500, "swing");
+	}
+
+	$('#contents a[href^="#"]').click(function(){
+		var href=$(this).attr("href");
+		var target=$(href=="#" || href=="" ? 'html' : href);
+		var position=target.offset().top-headerHight; //ヘッダの高さ分位置をずらす
+		$("html, body").animate({scrollTop:position}, 500, "swing");
+	});
+
+});
+			</code>
+			</pre>
+
+                <p><a href="http://dev019.coara.or.jp/itou/navi-follow/" target="_blank">実際の使用例（Gメニューをクリックしてください）</a></p>
+
+                <h4 class="heading-h4">例）</h4>
+
+                <p><a href="http://dev019.coara.or.jp/itou/anchor/" target="_blank">http://dev019.coara.or.jp/itou/anchor/</a></p>
+
+                <h4 class="heading-h4">使用サイト</h4>
+
+                <ul>
+                    <li><a href="https://hoiku-oita.jp/" target="_blank">https://hoiku-oita.jp/</a></li>
+                    <li><a href="https://shiga-hoiku.jp/" target="_blank">https://shiga-hoiku.jp/</a></li>
+                    <li><a href="https://www.kurume-hotomeki.jp/yamabe/" target="_blank">https://www.kurume-hotomeki.jp/yamabe/</a></li>
+                    <li><a href="https://www.kurume-hotomeki.jp/kusano/" target="_blank">https://www.kurume-hotomeki.jp/kusano/</a></li>
+                </ul>
+
+                <h2 id="4" class="heading-h2">アクセシビリティ対応時のスムーススクロールJSの記入例</h2>
+
+                <p>以前、アクセシビリティAA準拠のサイトで本文へボタンをクリックすると次のリンク箇所にタブで移動した際に、ヘッダーに戻ってしまうという現象がありましたが、一番下部に記載している「return
+                    false」を削除すると問題無く、ヘッダーのリンクを飛ばすことができます</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+//pagescroll
+
+jQuery(function($) {
+	$('a[href^="#"]').click(function() {
+		var speed = 500;
+		var href = $(this).attr("href");
+		var target = $(href == "#" || href == "" ? 'html' : href);
+		if (target.offset()) {
+		var position = target.offset().top;
+		$("html, body").animate({scrollTop: position}, speed, "swing");
+		}
+		return false;←削除する
+	});
+});
+			</code>
+			</pre>
+
+                <h2 id="5" class="heading-h2">似たようなつくりの静的ページならJSで出し分けることができます</h2>
+
+                <p>もりみどのLPページでQ1～Q20までの一覧があって、それぞれクリックするとそのAが表示されるというサイトです。静的ページとして、20P作ると大幅に工数がかかってしまうため全て1PにまとめてJSで出し分けています。似たような静的ページなら1Pにまとめて、ボタンクリックで簡単に出し分けることができるため便利です。
+                </p>
+
+                <p><a href="https://www.midorimachi.jp/roadside-tree/faq/" target="_blank">https://www.midorimachi.jp/roadside-tree/faq/</a></p>
+
+                <h2 id="6" class="heading-h2">.ready(function(){や.load(function(){の使い分け</h2>
+
+                <p>スクロールのアニメーションを使う時になかなか動作しない時ありませんか？それは、JQUERYを記述する最初の部分（例えば、$(window).load）などの箇所が影響しています。おおまかに分けて、2パターンあります
+                    <br>・ready<br>DOMツリー（HTML）の構築が完了したら実行される。
+                </p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+$(document).ready(function(){
+alert('Hello');
+});
+			</code>
+			</pre>
+
+                <p>・load<br>画像、動画などの関連データの全ての読み込みが完了したら実行される。</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+$(window).load(function(){
+	alert('Hello');
+});
+			</code>
+			</pre>
+
+                <h4 class="heading-h4">2つの違いをデモに上げてみました</h4>
+
+                <p>・ready</p>
+                <p><a href="http://dev019.coara.or.jp/itou/ready/" target="_blank">http://dev019.coara.or.jp/itou/ready/</a></p>
+                <p>・load</p>
+                <p><a href="http://dev019.coara.or.jp/itou/ready/load.html" target="_blank">http://dev019.coara.or.jp/itou/ready/load.html</a></p>
+
+                <p>より簡潔なので以下の書き方を推奨します</p>
+
+                <pre class="dev-markup">
+			<code class="language-markup">
+$(function(){
+	//なにかしらの処理
+});
+			</code></pre>
+
+            </div>
+
+        </article>
+    </main>
+
+    <!-- <script>
+            $('.dev-markup').on('click', function () {
+                // コピーする文章の取得
+                let text = $(this).find(".language-markup").text();
+                console.log(text);
+                // テキストエリアの作成
+                let $textarea = $('<textarea></textarea>');
+                // テキストエリアに文章を挿入
+                $textarea.text(text);
+                //　テキストエリアを挿入
+                $(this).append($textarea);
+                //　テキストエリアを選択
+                $textarea.select();
+                // コピー
+                document.execCommand('copy');
+                // テキストエリアの削除
+                $textarea.remove();
+            });
+    </script> -->
+
+</body>
+
+</html>

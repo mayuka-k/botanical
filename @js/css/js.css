@@ -1,0 +1,167 @@
+/* --------------------------------------------------
+
+jquery
+
+-------------------------------------------------- */
+
+.accordion dt {
+    padding: 1em;
+    background-color: #EEE;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion dt:before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.accordion dt.active:before {
+    transform: translateY(-50%) rotateZ(225deg);
+}
+
+.ac-area02 .ac-p {
+    padding: 1em;
+    background-color: #EEE;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.ac-area02 .ac-p:before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.ac-area02 .ac-p.active:before {
+    transform: translateY(-50%) rotateZ(225deg);
+}
+
+.ac-area02 .ac-c,
+.ac-area02 .ac-p {
+    margin: 0;
+}
+
+/* --------------------------------------------------
+
+アクセシビリティ
+
+-------------------------------------------------- */
+.ac-s-block h5 a {
+    padding: 1em;
+    background-color: #EEE;
+    display: block;
+    position: relative;
+}
+
+.ac-s-block h5 a:before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.ac-s-block h5 a.active-ac:before {
+    transform: translateY(-50%) rotateZ(225deg);
+}
+
+.ac-s-block02>ul>li>a {
+    padding: 1em;
+    background-color: #EEE;
+    display: block;
+    position: relative;
+}
+
+.ac-s-block02>ul>li>a:before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.ac-s-block02>ul>li>a.active-ac:before {
+    transform: translateY(-50%) rotateZ(225deg);
+}
+
+/* タブ切り替え */
+
+.tab-contents>div {
+    display: none;
+}
+
+.tab-contents>div.active {
+    display: block;
+}
+
+ul.btn-tab,
+ul.btn-tab02 {
+    display: flex;
+    justify-content: center;
+}
+
+ul.btn-tab li,
+ul.btn-tab02 li {
+    margin: 1em 0.5em;
+}
+
+ul.btn-tab li a,
+ul.btn-tab02 li a {
+    padding: 0.5em 1.5em;
+    background-color: #E1E1E1;
+}
+
+ul.btn-tab li a.active,
+ul.btn-tab02 li a.active {
+    color: #FFF;
+    padding: 0.5em 1.5em;
+    background-color: #A10000;
+}
+
+.tab-contents {
+    text-align: center;
+}
+
+.tab-contents>div>ul>li {
+    display: none;
+}
+
+.tab-contents ul li {
+    display: block !important;
+}
+
+.tab-contents>div>ul li.select {
+    display: block !important;
+}

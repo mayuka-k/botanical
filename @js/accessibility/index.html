@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism.css">
+    <link rel="stylesheet" href="../css/js.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://kit.fontawesome.com/57850ff175.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="c-page-sub">
+
+    <main class="c-page-sub__content">
+        <article class="c-page-sub__content-detail">
+            <div class="c-content-main">
+
+                <div class="dev-nav">
+                    <h6><a href="../animation/index.html">アニメーション</a></h6>
+                    <h6><a href="../index.html">JQUERY</a></h6>
+                    <h6><a href="index.html">アクセシビリティ</a></h6>
+                    <ul>
+                        <li><a href="#1">アコーディオンメニュー</a></li>
+                        <li><a href="#2">スマホメニュー</a></li>
+                        <li><a href="#3">タブ切り替え</a></li>
+                    </ul>
+                </div>
+
+                <!-- A.見出し -->
+                <div class="dev-heading-01">アクセシビリティ</div>
+
+                <h2 id="1" class="heading-h2">アコーディオンメニュー</h2>
+
+                <h3 class="heading-h3">単体</h3>
+
+                <div class="ac-s-block">
+
+                    <h5><a href="" class="ac-s-p">アコーディオンタイトル</a></h5>
+
+                    <div class="ac-s-c">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</div>
+
+                </div>
+
+                <h4 class="heading-h4">使い方</h4>
+
+                <p>アコーディオンのタイトルに（<span class="color-red">ac-s-p</span>）アコーディオンのコンテンツに（<span class="color-red">ac-s-c</span>）を付けるだけでそれぞれにタグが振り分けられます。</p>
+
+                <p>また、「//アコーディオン」のクラス名をサイトにあったクラス名に変更ください</p>
+
+                <p>※同じようにtoggleClassで実装しているアコーディオンについては、上のクラス名を付けて//アコーディオンjsを削除してください</p>
+
+                <p>※また、初期表示で開いた状態にしたいときは「//初期表示」を削除してください</p>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+					<code class="language-markup">
+&lt;h5 class="ac-p"&gt;&lt;a href="" class="ac-s-p"&gt;アコーディオンタイトル&lt;/a&gt;&lt;/h5&gt;
+&lt;div class="ac-c"&gt;ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。&lt;/div&gt;</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+									<code class="language-markup">
+//idとaria-controls,accordion-panelに番号を割り振る
+$('.ac-s-p').each(function (i) {
+	$(this).attr({
+		id: 'accordion-s-tab' + (i + 1),
+		'aria-controls': 'accordion-panel' + (i + 1)
+	});
+	$(this).next('.ac-s-c').attr({
+		'aria-labelledby': 'accordion-s-tab' + (i + 1),
+		id: 'accordion-panel' + (i + 1)
+	});
+});
+
+//それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+$('.ac-s-p').attr({
+	role: 'tab',
+	'aria-selected': 'true',
+	'aria-expanded': 'true',
+});
+$('.ac-s-c').attr('aria-hidden', 'false');
+
+//クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+$(".ac-s-p").click(function (e) {
+if ($(".ac-s-c").css('display') == 'none') {
+	$(this).attr({
+		'aria-selected': 'true',
+		'aria-expanded': 'true'
+	});
+	$(this).parent().next(".ac-s-c").attr({
+		'aria-hidden': 'false'
+	});
+} else {
+	$(this).attr({
+		'aria-selected': 'false',
+		'aria-expanded': 'false'
+	});
+	$(this).parent().next(".ac-s-c").attr({
+		'aria-hidden': 'true'
+	});
+}
+
+//aタグ無効化
+e.preventDefault();
+
+});
+
+//初期表示
+$('.ac-s-c').css("display", "none");
+
+//アコーディオンjs
+$('.ac-s-block h5 a').click(function (e) {
+	$(this).parent().next(".ac-s-c").slideToggle();
+	$(this).toggleClass("active-ac");
+});
+
+									</code>
+								</pre>
+
+                <h3 class="heading-h3">複数</h3>
+
+                <div class="ac-s-block02">
+
+                    <ul class="ac-list">
+                        <li><a href="" class="ac-p">アコーディオンタイトル</a>
+                            <ul class="ac-c">
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="ac-p">アコーディオンタイトル</a>
+                            <ul class="ac-c">
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="ac-p">アコーディオンタイトル</a>
+                            <ul class="ac-c">
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="ac-p">アコーディオンタイトル</a>
+                            <ul class="ac-c">
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                                <li><a href="">メニュー</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <h4 class="heading-h4">使い方</h4>
+
+                <p>アコーディオンの大元の（ul）に（<span class="color-red">ac-list</span>）、アコーディオンのタイトルに（<span class="color-red">ac-p</span>）アコーディオンのコンテンツに（<span class="color-red">ac-c</span>）を付けるだけでそれぞれにタグが振り分けられます。</p>
+                <p>実装済みのものにクラス名を付けるだけでも</p>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+				<code class="language-markup">
+&lt;ul class="ac-list"&gt;
+	&lt;li class="ac-p"&gt;&lt;a href=""&gt;アコーディオンタイトル&lt;/a&gt;
+		&lt;ul class="ac-c"&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li class="ac-p"&gt;&lt;a href=""&gt;アコーディオンタイトル&lt;/a&gt;
+		&lt;ul class="ac-c"&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li class="ac-p"&gt;&lt;a href=""&gt;アコーディオンタイトル&lt;/a&gt;
+		&lt;ul class="ac-c"&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li class="ac-p"&gt;&lt;a href=""&gt;アコーディオンタイトル&lt;/a&gt;
+		&lt;ul class="ac-c"&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+<code class="language-markup">
+//idとaria-controls,accordion-panelに番号を割り振る
+$('.ac-p').each(function (i) {
+	$(this).attr({
+		id: 'accordion-tab' + (i + 1),
+		'aria-controls': 'accordion-panel' + (i + 1)
+	});
+	$(this).next('.ac-c').attr({
+		'aria-labelledby': 'accordion-tab' + (i + 1),
+		id: 'accordion-panel' + (i + 1)
+	});
+});
+
+//それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+$('.ac-list').attr('role', 'tablist');
+$('.ac-list .ac-c').attr('role', 'tabpanel');
+$('.ac-p').attr({
+	role: 'tab',
+	'aria-selected': 'true',
+	'aria-expanded': 'true',
+});
+$('.ac-c').attr('aria-hidden', 'false');
+
+//クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+$(".ac-p").click(function (e) {
+if ($(".ac-c").css('display') == 'none') {
+	$(this).attr({
+		'aria-selected': 'true',
+		'aria-expanded': 'true'
+	});
+	$(this).next(".ac-c").attr({
+		'aria-hidden': 'false'
+	});
+	} else {
+	$(this).attr({
+		'aria-selected': 'false',
+		'aria-expanded': 'false'
+	});
+	$(this).next(".ac-c").attr({
+		'aria-hidden': 'true'
+	});
+}
+
+//aタグ無効化
+e.preventDefault();
+
+});
+
+//初期表示
+$('.ac-c').css("display", "none");
+
+//アコーディオンjs
+$('.ac-s-block02 > ul > li > a').click(function (e) {
+	$(this).next(".ac-c").slideToggle();
+	$(this).toggleClass("active-ac");
+});
+</code></pre>
+
+                <h2 id="2" class="heading-h2">スマホメニュー</h2>
+
+                <h4 class="heading-h4">実装例</h4>
+
+                <p><a href="http://dev019.coara.or.jp/itou/yufuin/">http://dev019.coara.or.jp/itou/yufuin/</a></p>
+
+                <h4 class="heading-h4">使い方</h4>
+
+                <p>スマホメニューのボタンに（<span class="color-red">sp-p</span>）開くメニューに（<span class="color-red">sp-c</span>）を付けるだけでそれぞれにタグが振り分けられます。</p>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+				<code class="language-markup">
+//idとaria-controls,accordion-panelに番号を割り振る
+$('.sp-p').attr({
+	id: 'menu-tab1',
+	'aria-controls': 'menu-panel1'
+});
+$('.sp-c').attr({
+	'aria-labelledby': 'menu-tab1',
+	id: 'menu-panel1'
+});
+// $('.sp-c').addClass("active-menu");
+
+//それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+$('.sp-p').attr({
+	'aria-selected': 'true',
+	'aria-expanded': 'true',
+});
+$('.sp-c').attr('aria-hidden', 'false');
+
+//クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+$(".sp-p").click(function (e) {
+$('.sp-c').toggleClass("active-menu");
+if ($(".sp-c").hasClass('active-menu')) {
+	$(this).attr({
+		'aria-selected': 'true',
+		'aria-expanded': 'true'
+	});
+	$(".sp-c").attr({
+		'aria-hidden': 'false'
+	});
+} else {
+	$(this).attr({
+		'aria-selected': 'false',
+		'aria-expanded': 'false'
+	});
+	$(".sp-c").attr({
+		'aria-hidden': 'true'
+	});
+}
+
+//aタグ無効化
+e.preventDefault();
+
+});
+					</code></pre>
+
+                <h2 id="3" class="heading-h2">タブ切り替え</h2>
+
+                <ul class="btn-tab tab-list">
+                    <li><a class="active" href="">Aグループ</a></li>
+                    <li><a href="" class="">Bグループ</a></li>
+                    <li><a href="" class="">Cグループ</a></li>
+                    <li><a href="">Dグループ</a></li>
+                    <li><a href="">Eグループ</a></li>
+                </ul>
+
+                <div class="tab-contents tab-c">
+
+                    <div class="active">
+                        Aグループ
+                    </div>
+                    <div>
+                        Bグループ
+                    </div>
+                    <div>
+                        Cグループ
+                    </div>
+                    <div>
+                        Dグループ
+                    </div>
+                    <div>
+                        Eグループ
+                    </div>
+
+                </div>
+
+                <h5 class="heading-h5">HTML</h5>
+
+                <pre class="dev-markup">
+									<code class="language-markup">
+&lt;ul class="btn-tab tab-list"&gt;
+	&lt;li&gt;&lt;a class="active" href=""&gt;Aグループ&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="" class=""&gt;Bグループ&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="" class=""&gt;Cグループ&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=""&gt;Dグループ&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=""&gt;Eグループ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tab-contents tab-c"&gt;
+
+	&lt;div class="active"&gt;
+		Aグループ
+	&lt;/div&gt;
+	&lt;div&gt;
+		Bグループ
+	&lt;/div&gt;
+	&lt;div&gt;
+		Cグループ
+	&lt;/div&gt;
+	&lt;div&gt;
+		Dグループ
+	&lt;/div&gt;
+	&lt;div&gt;
+		Eグループ
+	&lt;/div&gt;
+
+&lt;/div&gt;
+								</code></pre>
+
+                <h5 class="heading-h5">JQUERY</h5>
+
+                <pre class="dev-markup">
+									<code class="language-markup">
+$('ul.btn-tab li a').click(function (e) {
+	num = $(this).parent('li').index();
+	$(this).addClass('active').parent().siblings().children().removeClass('active');
+	$(this).parent().parent().next('.tab-contents').children('div').removeClass('active').eq(num).addClass('active');
+	e.preventDefault();
+});
+
+//idとaria-controls,accordion-panelに番号を割り振る
+$('.tab-list li a').each(function (i) {
+	$(this).attr({
+	id: 'tab' + (i + 1),
+	'aria-controls': 'tab-panel' + (i + 1)
+	});
+});
+
+$('.tab-c > div').each(function (i) {
+	$(this).attr({
+	'aria-labelledby': 'tab' + (i + 1),
+	id: 'tab-panel' + (i + 1)
+	});
+});
+
+//それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+$('.tab-list').attr('role', 'tablist');
+$('.tab-list > li > a').attr('role', 'tab');
+$('.tab-c > div').attr('role', 'tabpanel');
+
+$('.tab-list > li > a').attr({
+	role: 'tab',
+	'aria-selected': 'false',
+	'aria-expanded': 'false',
+});
+$('.tab-list > li > a.active').attr({
+	role: 'tab',
+	'aria-selected': 'true',
+	'aria-expanded': 'true',
+});
+
+$('.tab-c > div').attr('aria-hidden', 'true');
+$('.tab-c > div.active').attr('aria-hidden', 'false');
+
+//クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+$(".tab-list > li > a").click(function (e) {
+	$(".tab-list > li > a").attr({
+		'aria-selected': 'false',
+		'aria-expanded': 'false'
+	});
+if ($(this).hasClass('active')) {
+	$(this).attr({
+		'aria-selected': 'true',
+		'aria-expanded': 'true'
+	});
+}
+
+$(".tab-c > div").attr({
+	'aria-hidden': 'true'
+});
+
+if ($(".tab-c > div").hasClass('active')) {
+	$(".tab-c > div.active").attr({
+		'aria-hidden': 'false'
+	});
+}
+
+//aタグ無効化
+e.preventDefault();
+
+});
+								</code></pre>
+
+        </article>
+    </main>
+
+    <script>
+        //idとaria-controls,accordion-panelに番号を割り振る
+        $('.ac-s-p').each(function (i) {
+            $(this).attr({
+                id: 'accordion-s-tab' + (i + 1),
+                'aria-controls': 'accordion-panel' + (i + 1)
+            });
+            $(this).next('.ac-s-c').attr({
+                'aria-labelledby': 'accordion-s-tab' + (i + 1),
+                id: 'accordion-panel' + (i + 1)
+            });
+        });
+
+        //それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+        $('.ac-s-p').attr({
+            role: 'tab',
+            'aria-selected': 'true',
+            'aria-expanded': 'true',
+        });
+        $('.ac-s-c').attr('aria-hidden', 'false');
+
+        //クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+        $(".ac-s-p").click(function (e) {
+            if ($(".ac-s-c").css('display') == 'none') {
+                $(this).attr({
+                    'aria-selected': 'true',
+                    'aria-expanded': 'true'
+                });
+                $(this).parent().next(".ac-s-c").attr({
+                    'aria-hidden': 'false'
+                });
+            } else {
+                $(this).attr({
+                    'aria-selected': 'false',
+                    'aria-expanded': 'false'
+                });
+                $(this).parent().next(".ac-s-c").attr({
+                    'aria-hidden': 'true'
+                });
+            }
+
+            //aタグ無効化
+            e.preventDefault();
+
+        });
+
+        //初期表示
+        $('.ac-s-c').css("display", "none");
+
+        //アコーディオンjs
+        $('.ac-s-block h5 a').click(function (e) {
+            $(this).parent().next(".ac-s-c").slideToggle();
+            $(this).toggleClass("active-ac");
+        });
+
+    </script>
+
+    <script>
+        //idとaria-controls,accordion-panelに番号を割り振る
+        $('.ac-p').each(function (i) {
+            $(this).attr({
+                id: 'accordion-tab' + (i + 1),
+                'aria-controls': 'accordion-panel' + (i + 1)
+            });
+            $(this).next('.ac-c').attr({
+                'aria-labelledby': 'accordion-tab' + (i + 1),
+                id: 'accordion-panel' + (i + 1)
+            });
+        });
+
+        //それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+        $('.ac-list').attr('role', 'tablist');
+        $('.ac-list .ac-c').attr('role', 'tabpanel');
+        $('.ac-p').attr({
+            role: 'tab',
+            'aria-selected': 'true',
+            'aria-expanded': 'true',
+        });
+        $('.ac-c').attr('aria-hidden', 'false');
+
+        //クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+        $(".ac-p").click(function (e) {
+            if ($(".ac-c").css('display') == 'none') {
+                $(this).attr({
+                    'aria-selected': 'true',
+                    'aria-expanded': 'true'
+                });
+                $(this).next(".ac-c").attr({
+                    'aria-hidden': 'false'
+                });
+            } else {
+                $(this).attr({
+                    'aria-selected': 'false',
+                    'aria-expanded': 'false'
+                });
+                $(this).next(".ac-c").attr({
+                    'aria-hidden': 'true'
+                });
+            }
+
+            //aタグ無効化
+            e.preventDefault();
+
+        });
+
+        //初期表示
+        $('.ac-c').css("display", "none");
+
+        //アコーディオンjs
+        $('.ac-s-block02 > ul > li > a').click(function (e) {
+            $(this).next(".ac-c").slideToggle();
+            $(this).toggleClass("active-ac");
+        });
+
+    </script>
+
+    <script>
+
+        $('ul.btn-tab li a').click(function (e) {
+            num = $(this).parent('li').index();
+            $(this).addClass('active').parent().siblings().children().removeClass('active');
+            $(this).parent().parent().next('.tab-contents').children('div').removeClass('active').eq(num).addClass('active');
+            e.preventDefault();
+        });
+
+        //idとaria-controls,accordion-panelに番号を割り振る
+        $('.tab-list li a').each(function (i) {
+            $(this).attr({
+                id: 'tab' + (i + 1),
+                'aria-controls': 'tab-panel' + (i + 1)
+            });
+        });
+
+        $('.tab-c > div').each(function (i) {
+            $(this).attr({
+                'aria-labelledby': 'tab' + (i + 1),
+                id: 'tab-panel' + (i + 1)
+            });
+        });
+
+        //それぞれにrole属性、aria-selected、aria-expanded、aria-hiddenを付ける
+        $('.tab-list').attr('role', 'tablist');
+        $('.tab-list > li > a').attr('role', 'tab');
+        $('.tab-c > div').attr('role', 'tabpanel');
+
+        $('.tab-list > li > a').attr({
+            role: 'tab',
+            'aria-selected': 'false',
+            'aria-expanded': 'false',
+        });
+        $('.tab-list > li > a.active').attr({
+            role: 'tab',
+            'aria-selected': 'true',
+            'aria-expanded': 'true',
+        });
+
+        $('.tab-c > div').attr('aria-hidden', 'true');
+        $('.tab-c > div.active').attr('aria-hidden', 'false');
+
+        //クリックした際のrole属性、aria-selected、aria-expanded、aria-hiddenを変更する
+        $(".tab-list > li > a").click(function (e) {
+            $(".tab-list > li > a").attr({
+                'aria-selected': 'false',
+                'aria-expanded': 'false'
+            });
+            if ($(this).hasClass('active')) {
+                $(this).attr({
+                    'aria-selected': 'true',
+                    'aria-expanded': 'true'
+                });
+            }
+
+            $(".tab-c > div").attr({
+                'aria-hidden': 'true'
+            });
+
+            if ($(".tab-c > div").hasClass('active')) {
+                $(".tab-c > div.active").attr({
+                    'aria-hidden': 'false'
+                });
+            }
+
+            //aタグ無効化
+            e.preventDefault();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

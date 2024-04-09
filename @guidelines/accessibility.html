@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/website#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>QTmedia</title>
+
+    <!-- viewport -->
+    <script src="../js/viewport.js"></script>
+
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ogp -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ボタニカルライフスクエア">
+    <meta property="og:title" content="ボタニカルライフスクエア">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="../img/common/ogp.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ボタニカルライフスクエア">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="../img/common/ogp.png">
+
+    <!--favicon-->
+    <link href="../favicon.ico" rel="shortcut icon">
+
+    <!-- apple-touch-icon-->
+    <link rel="apple-touch-icon" href="../img/common/apple-touch-icon-precomposed.png">
+
+    <!-- webfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- 個別css -->
+    <link rel="stylesheet" href="css/guidelines.css">
+
+
+    <!-- js-->
+    <script src="../js/jquery.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--contents-->
+        <div id="contents">
+
+            <!-- page-ttl -->
+            <h2 class="page-ttl">ガイドライン<span>QTmedia</span></h2>
+            <!-- page-ttl -->
+
+            <div class="inner">
+
+                <div class="breadCrumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="../@guidelines/">ガイドライン</a></li>
+                        <li>アクセシビリティ対応についてのガイドライン</li>
+                    </ul>
+                </div>
+
+                <!-- post-content -->
+                <article class="post-content">
+
+                    <!-- wysiwyg -->
+                    <div class="wysiwyg">
+
+                        <!-- h1 -->
+                        <h1>アクセシビリティ対応についてのガイドライン</h1>
+                        <!-- h1 -->
+
+                        <p>基本的に、対応内容に留意してコーディングする必要があります。<br>
+                            テンプレートについては、アクセシビリティに準拠してるので基本テンプレートを参考にコーディングしてください。<br>
+                            仕様段階で必要な要件があれば以下に追加で対応が必要です。また、顧客との打ち合わせ次第では、対応が不要な項目もあります。</p>
+
+                        <div class="mokuji">
+                            <p>目次</p>
+                            <ol>
+                                <li><a href="#guide01">アクセシビリティ対応の流れ</a></li>
+                                <li><a href="#guide02">対応内容</a></li>
+                                <li><a href="#guide03">MIチェッカーの使い方</a></li>
+                            </ol>
+                        </div>
+
+                        <!-- h2 -->
+                        <h2 id="guide01">アクセシビリティ対応の流れ</h2>
+                        <!-- h2 -->
+
+                        <p>基本的に、対応内容をコーディング後全ページMIチェッカーにかける必要があります。<br>
+                            「問題あり」「問題の可能性大」は必ず修正してください。</p>
+                        <p class="note">※form箇所のlabelのforやinputのidは開発が設定するので基本空で良いです</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide02">対応内容</h2>
+                        <!-- h2 -->
+
+                        <!-- h3 -->
+                        <h3>ヘッダーまわり</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">本文へのスキップボタン</th>
+                                        <td>タブキーで表示できるようにHTMLに記述する。</td>
+                                        <td><a href="https://www.fukuoka-airport.jp/" title="新規タブで外部サイトを開きます" target="_blank">福岡空港</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">グローバルメニュー<br>メガメニュー</th>
+                                        <td>タブキーで全てのメニューにフォーカスできるようにする。</td>
+                                        <td><a href="https://www.fukuoka-airport.jp/" title="新規タブで外部サイトを開きます" target="_blank">福岡空港</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">サイトロゴ</th>
+                                        <td>トップページではサイトロゴをh1、中ページではh1ではなく、pやdivで囲む。</td>
+                                        <td><a href="https://www.saisoncard.co.jp/" title="新規タブで外部サイトを開きます" target="_blank">セゾンカード</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ハンバーガーメニュー</th>
+                                        <td>状態を表すaria-labelを記述する。</td>
+                                        <td>アクセシビリティテンプレートにて実装
+                                            <!-- <a href="https://www.fukuoka-airport.jp/" title="新規タブで外部サイトを開きます" target="_blank">福岡空港</a> -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">スライダー</th>
+                                        <td>再生・停止・スライド選択ボタンにもタブでフォーカスが当たるようにする。</td>
+                                        <td>アクセシビリティテンプレートにて実装</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>テーブル</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">tbody、theadの記述</th>
+                                        <td>一つのテーブル内に表が一つしかない場合は不要。<br>
+                                            一つのテーブル内に表が複数ある場合のみ記述。</td>
+                                        <td><a href="https://www.tagindex.com/html5/table/tbody.html" title="新規タブで外部サイトを開きます" target="_blank">表の行をグループ化する（本体部分）-TAG index</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">captionの記述</th>
+                                        <td>テーブルの直前に見出しがある場合は不要とし省略、ない場合は必要。</td>
+                                        <td><a href="https://www.tagindex.com/html_tag/table/caption.html" title="新規タブで外部サイトを開きます" target="_blank">表にタイトルを付ける-TAG index</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">summaryの記述</th>
+                                        <td>summaryはHTML5で廃止されているので、記述の必要なし。</td>
+                                        <td><a href="https://parashuto.com/rriver/tools/coding-accessible-data-tables" title="新規タブで外部サイトを開きます" target="_blank">アクセシビリティを考慮したデータ・テーブルのコーディングやってますか？（基本編）-Rriver</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">scopeの記述</th>
+                                        <td>列と行の両方にthがある場合は、列のヘッダーにはscope="col"を、行のヘッダーにはscope="row"を入れる。<br>
+                                            列と行の両方にthがない場合は記述する必要なし。</td>
+                                        <td><a href="https://parashuto.com/rriver/tools/coding-accessible-data-tables" title="新規タブで外部サイトを開きます" target="_blank">アクセシビリティを考慮したデータ・テーブルのコーディングやってますか？（基本編）-Rriver</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>フォーム</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">labelの記述</th>
+                                        <td> 以下の要素を記述するときにはlabelの記述が必須。
+                                            <ul class="list-code">
+                                                <li>input type="text"</li>
+                                                <li>input type="checkbox"</li>
+                                                <li>input type="radio"</li>
+                                                <li>input type="file"</li>
+                                                <li>input type="password"</li>
+                                                <li>textarea</li>
+                                                <li>select</li>
+                                            </ul>
+                                            <span class="note">※input 要素の type="checkbox" と type="radio" では、label 要素をその後に配置することに注意する。</span>
+                                        </td>
+                                        <td><a href="https://waic.jp/docs/WCAG-TECHS/H44" title="新規タブで外部サイトを開きます" target="_blank">テキストラベルとフォームコントロールを関連付けるために、label 要素を使用する-WCAG 2.0 達成方法集</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">filedset、legendの記述</th>
+                                        <td>
+                                            <p>グループ化できる要素は必ずfiledsetで囲み、legendでタイトルを記述する 。<br>
+                                                テーブルで分けれないので、注意が必要。</p>
+                                            <p>【例】<br>■テキスト</p>
+                                            <pre class="guideline-code">
+	<code>
+		&lt;fieldset&gt;
+			&lt;legend&gt;電話番号&lt;/legend&gt;
+			&lt;input id=&quot;areaCode&quot; name=&quot;areaCode&quot;title=&quot;市外局番&quot;
+			type=&quot;text&quot; size=&quot;3&quot; value=&quot;&quot; &gt;
+			&lt;input id=&quot;exchange&quot; name=&quot;exchange&quot;title=&quot;電話番号の上3桁&quot;
+			type=&quot;text&quot; size=&quot;3&quot; value=&quot;&quot; &gt;
+			&lt;input id=&quot;lastDigits&quot; name=&quot;lastDigits&quot;title=&quot;電話番号の下4桁&quot;
+			type=&quot;text&quot; size=&quot;4&quot; value=&quot;&quot; &gt;
+		&lt;/fieldset&gt;
+	</code>
+	</pre>
+
+                                            <p> ■ラジオボタン</p>
+                                            <pre class="guideline-code">
+	<code>
+		&lt;fieldset&gt;
+			&lt;legend&gt;好きな果物は&lt;/legend&gt;
+			&lt;input type=&quot;radio&quot; id=&quot;apple_ra&quot; name=&quot;fruit&quot; checked=&quot;checked&quot; value=&quot;a&quot;&gt;
+			&lt;label for=&quot;apple_ra&quot;&gt;りんご&lt;/label&gt;&lt;br /&gt;
+			&lt;input type=&quot;radio&quot; id=&quot;banana_ra&quot; name=&quot;fruit&quot; value=&quot;b&quot;&gt;
+			&lt;label for=&quot;banana_ra&quot;&gt;ばなな &lt;/label&gt;&lt;br /&gt;
+			&lt;input type=&quot;radio&quot; id=&quot;grape_ra&quot; name=&quot;fruit&quot; value=&quot;c&quot;&gt;
+			&lt;label for=&quot;grape_ra&quot;&gt;ぶどう&lt;/label&gt;
+		&lt;/fieldset&gt;
+	</code>
+	</pre>
+
+                                            <p> ■チェックボックス</p>
+                                            <pre class="guideline-code">
+		&lt;fieldset&gt;
+			&lt;legend&gt;好きな果物は（全て選択可）&lt;/legend&gt;
+			&lt;input type=&quot;checkbox&quot; id=&quot;apple_ch&quot; name=&quot;interests&quot; value=&quot;a&quot;&gt;
+			&lt;label for=&quot;apple_ch&quot;&gt;りんご&lt;/label&gt;&lt;br /&gt;
+			&lt;input type=&quot;checkbox&quot; id=&quot;banana_ch&quot; name=&quot;interests&quot; value=&quot;b&quot;&gt;
+			&lt;label for=&quot;banana_ch&quot;&gt;ばなな&lt;/label&gt;&lt;br /&gt;
+			&lt;input type=&quot;checkbox&quot; id=&quot;grape_ch&quot; name=&quot;interests&quot; value=&quot;c&quot;&gt;
+			&lt;label for=&quot;grape_ch&quot;&gt;ぶどう&lt;/label&gt;
+		&lt;/fieldset&gt;
+	</code>
+	</pre>
+                                        </td>
+                                        <td>
+                                            <p><a href="https://engineer-note.com/front-end/how-to-use-filedset-and-talbe-layout/" title="新規タブで外部サイトを開きます" target="_blank">【フォームのアクセシビリティを考える】fieldsetとlegendの使い方とテーブルレイアウト対応-エンジニアノート</a></p>
+                                            <p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/fieldset" title="新規タブで外部サイトを開きます" target="_blank">&lt;fieldset&gt;:フィールドセット要素-MDN</a></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">optgroupの記述</th>
+                                        <td>optionがある場合optgroup要素を必ず入れる。</td>
+                                        <td><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/optgroup" title="新規タブで外部サイトを開きます" target="_blank">&lt;optgroup&gt;-MDN</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">チェックボックス</th>
+                                        <td>スマホの時タップでチェックが入るようにする。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">個人情報同意のチェックボックス</th>
+                                        <td>仕様書で「同意する」のチェックボックスに個人情報へのリンクが含まれていることがあるが、それはアクセシビリティ的におかしいので注意する。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">必須マーク</th>
+                                        <td>strongタグを使用。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">フォームの実行ボタン</th>
+                                        <td>必ずbuttonタグを使用する。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>見出し</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">h1～h6の順番</th>
+                                        <td>基本的にトップページはロゴをh1下層ページはタイトルをh1とする。<br>
+                                            また、セクション毎に区切られていれば同一ページで何度もh1を使用することができる。見出しは昇順に使用する。<br>
+                                            CSSを切って、HTMLだけで文章の階層関係に矛盾が無いか確認する。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">中ページのコンテンツタイトルをh1とする</th>
+                                        <td>サイトロゴをh1としないように注意。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>リスト</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">リストはul、olタグで記述する</th>
+                                        <td>
+                                            <p>
+                                                ・いち<br>
+                                                ・に<br>
+                                                ・さん<br>
+                                                上記のように「・」を使用して箇条書きをしていないか。
+                                            </p>
+                                            <p>
+                                                ①いち<br>
+                                                ②に<br>
+                                                ③さん<br>
+                                                上記のように「①」などを使用していないか。
+                                            </p>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>画像</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">写真とタイトルのリンクがセットの場合の画像のalt</th>
+                                        <td>空でOK。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">「no image画像」のalt</th>
+                                        <td>空でOK。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">グラフ画像、表の画像</th>
+                                        <td>
+                                            <p>グラフに代替テキストが指定できるのであれば代替テキストを指定。<br>
+                                                代替テキストが長くなるようであれば、画像の近くに説明文を用意し、代替テキストには画像の概要と説明文のある場所を示すようにする。</p>
+                                            <p>表の画像はテーブルの方が望ましいが、移行などの場合は画像のままで代替テキストもしくは説明文で補足する形でも問題はない。</p>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">画像のalt</th>
+                                        <td>
+                                            <p>
+                                                altの記述の仕方<br>
+                                                <span class="example">例）alt="写真：〇〇〇〇〇〇〇〇"<br>
+                                                    ⇒写真、イラスト、グラフなどを前に入力する</span>
+                                            </p>
+                                            <p>装飾的な画像に代替テキストを入れると、音声ブラウザを使用している場合、ページの内容を理解する妨げになる場合がある、ということを踏まえ、文脈に必要かどうかで判断する。目立たせてリンク遷移を強調するためのキャッチ画像の説明は文脈としては不要なので、altを空とするなど。
+                                        </td>
+                                        </p>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>リンク</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">リンクの文字色・装飾</th>
+                                        <td>下線を付ける、普通のテキストとのコントラスト比を 3:1 以上するなど決まりではないが、リンクとわかることが大切。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">外部リンク</th>
+                                        <td>
+                                            <p>&lt;a&gt;タグにtitle="新規タブで外部サイトを開きます"を記述。疑似要素で外部リンクのアイコンを配置する。</p>
+                                            <p>リンクにテキストで（外部リンクが開きます）と記述されている場合は、title="新規タブで外部サイトを開きます"の記述は不要。<br>
+                                                外部リンクの時は別タブで開くようにする。</p>
+                                        </td>
+                                        <td><a href="https://www.fukuoka-airport.jp/" title="新規タブで外部サイトを開きます" target="_blank">福岡空港</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">リンクのテキスト</th>
+                                        <td>リンクのテキストは「こちら」などにせず、リンク・テキストの文言から遷移先をある程度推測できるようする。</td>
+                                        <td><a href="https://a11y-guidelines.freee.co.jp/categories/link.html" title="新規タブで外部サイトを開きます" target="_blank">リンク-freeeアクセシビリティー・ガイドライン</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">リンクのfocusの装飾</th>
+                                        <td>focusしたときのoutlineを消さない。<br>
+                                            focusするoutlineについてはそれぞれのブラウザのデフォルトの装飾が付いている為CSSによる装飾は不要。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h3 -->
+                        <h3>その他</h3>
+                        <!-- h3 -->
+
+                        <div class="table-scroll">
+                            <table class="table-block">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th scope="col">方針</th>
+                                        <th scope="col">参考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">iframe全てにtitle属性を追加する</th>
+                                        <td>Googleのタグマネージャーについても、iframe全てにtitle属性を追加する必要がある。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">疑似要素にテキストは入れない</th>
+                                        <td>読み上げられないので、疑似要素でテキストは入れない。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">タブメニュー</th>
+                                        <td>状態を表すaria-labelを記述する。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">英単語の記述</th>
+                                        <td>
+                                            <p>「TEL」「FAX」「mail」「WEB」「GW」「MB」「KB」「kg」などの英単語は使用可能。<br>
+                                                ホームページの「HP」は「ホームページ」、「wi-fi」は「wifi」と記述する。「m」「ℓ」はカタカナで記述する。</p>
+                                            <p>スライダーのスタートボタンを「START」と全て大文字で記述すると読み上げに対応しないため、読み上げが必要な英単語は小文字で記述する。</p>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ファイルサイズの記述</th>
+                                        <td>ダウンロードできるファイルについて、基本的にファイル種類と、ファイルサイズの記入が必須となります。<br>
+                                            <span class="example">例）pdf（5.11メガバイト）、excel（2.55メガバイト）、word（5.02メガバイト）</span>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">和暦、日付、曜日、時間の表記</th>
+                                        <td>「R３年7/28（火）10:00～13:00」<br>
+                                            →「令和3年7月28日（火曜日）10時から13時」になっていればOK。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">読み上げる必要がある記号の表記</th>
+                                        <td>「1000円/1人」「\1000」などのように「/」「\」を使用していないか。<br>
+                                            「1人あたり1000円」「1000円」などになっていればOK。</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">数字・スペース</th>
+                                        <td>半角英数字と半角スペースを使用。<br>
+                                            文字の隙間を空けるためにスペースを入れてはいけない。<br>
+                                            <span class="example">例）【講 師】→【講師】【開 催 場 所】→【開催場所】</span>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">アイコン</th>
+                                        <td>装飾であれば代替テキストは不要ですが、アイコンだけにリンクが設定されている場合など文字情報を補足する必要がある場合はタグに適した形での記載が必要。<br>
+                                            ハンバーガーメニューなど、アイコンだけのボタンではなくテキストラベルを添えるなど、視覚だけに頼らない見せ方をする</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">印刷対応がある場合</th>
+                                        <td>画面を印刷したときの注意点（以下は対応が必要な時のみ）<br>
+                                            <ol>
+                                                <li>
+                                                    以下の要素または領域を消す
+                                                    <ul class="list-code">
+                                                        <li>ヘッダーのロゴ以外</li>
+                                                        <li>ナビゲーション（グローバルナビ・ローカルナビなど）</li>
+                                                        <li>プラグイン、ページナビ（ページの先頭へ戻るなど）</li>
+                                                        <li>フッターのリンクや装飾（ロゴ・コピーライト・アドレス以外）</li>
+                                                    </ul>
+                                                </li>
+                                                <li>本文領域を幅100％可変状態にする</li>
+                                                <li>装飾は本文要素に関係するものだけを残す 本文内の要素以外は、背景色・背景画像・線は消す 見出し・リストアイコン・その他パーツなどの本文要素の背景色・背景画像・線は残す</li>
+                                                <li>本文とヘッダーフッターの区切り線を表示する</li>
+                                                <li>モノクロ印刷での表示を確認し、読みにくい箇所の背景を消すといった調整を行う</li>
+                                            </ol>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">モーダル</th>
+                                        <td>モーダルは「Micromodal.js」を使って実装する</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- h2 -->
+                        <h2 id="guide03">MIチェッカーの使い方</h2>
+                        <!-- h2 -->
+
+                        <div class="guideline-box">
+                            <p><a href="https://www.soumu.go.jp/main_sosiki/joho_tsusin/b_free/michecker.html" title="新規タブで外部サイトを開きます" target="_blank">みんなのアクセシビリティ評価ツール：miChecker (エムアイチェッカー)Ver.2.0-総務省</a></p>
+                            <p>上記URLからMIチェッカーをダウンロードしてください。また、miCheckerにはjavaが必要です。</p>
+                        </div>
+                        <p>以下のサイトを参考にアクセシビリティ検証・音声ユーザビリティの可視化とロービジョンのシミュレーションを行ってください。</p>
+                        <ul>
+                            <li><a href="https://www.itra.co.jp/webmedia/michecker.html" title="新規タブで外部サイトを開きます" target="_blank">アクセシビリティ検証ツール「miChecker」で出来ること-Webmedia</a></li>
+                            <li><a href="https://www.jwac.or.jp/activity/event/data/120529_03.pdf" title="新規タブで外部サイトを開きます" target="_blank">みんなのアクセシビリティ評価ツール miChecker を用いた評価について（PDF）</a></li>
+                        </ul>
+
+                        <p>アクセシビリティ検証・音声ユーザビリティの可視化については、「問題あり」と「問題の可能性大」を修正する必要があります。<br>
+                            また、ロービジョンのシミュレーションについて、問題ありにエラーがある場合は、ご報告ください。<br>
+                            デザイン上、調整が必要になるので、弊社の方で対応します。</p>
+
+                    </div>
+                    <!-- wysiwyg -->
+
+                </article>
+                <!-- post-content -->
+
+                <!-- btn-postback -->
+                <p class="btn-postback"><a href="../@guidelines/index.html">ガイドラインに戻る</a></p>
+                <!-- btn-postback -->
+
+            </div>
+
+        </div>
+        <!--contents-->
+        <footer id="footer">
+
+            <!-- page-top -->
+            <div class="page-top">
+                <a href="#"></a>
+            </div>
+            <!-- page-top -->
+
+        </footer>
+
+    </div>
+    <!-- wrapper -->
+
+</body>
+
+</html>

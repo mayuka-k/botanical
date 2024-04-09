@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169.93" height="145.932" viewBox="0 0 169.93 145.932">
+  <defs>
+    <filter id="多角形_21" x="0" y="0" width="169.93" height="145.932" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="ico_pagetop_back" transform="translate(-1248.416 -3386.07)">
+    <g transform="matrix(1, 0, 0, 1, 1248.42, 3386.07)" filter="url(#多角形_21)">
+      <path id="多角形_21-2" data-name="多角形 21" d="M91.9,0a31,31,0,0,1,26.52,14.948L136.11,44.18a31,31,0,0,1,0,32.1l-17.693,29.232A31,31,0,0,1,91.9,120.463H53.929a31,31,0,0,1-26.52-14.948L9.716,76.284a31,31,0,0,1,0-32.1L27.409,14.948A31,31,0,0,1,53.929,0Z" transform="translate(9 13.63) rotate(-3)" fill="#186361"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/website#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>QTmedia</title>
+
+    <!-- viewport -->
+    <script src="../js/viewport.js"></script>
+
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ogp -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ボタニカルライフスクエア">
+    <meta property="og:title" content="ボタニカルライフスクエア">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="../img/common/ogp.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ボタニカルライフスクエア">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="../img/common/ogp.png">
+
+    <!--favicon-->
+    <link href="../favicon.ico" rel="shortcut icon">
+
+    <!-- apple-touch-icon-->
+    <link rel="apple-touch-icon" href="../img/common/apple-touch-icon-precomposed.png">
+
+    <!-- webfont -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- 個別css -->
+    <link rel="stylesheet" href="css/guidelines.css">
+
+
+    <!-- js-->
+    <script src="../js/jquery.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--contents-->
+        <div id="contents">
+
+            <!-- page-ttl -->
+            <h2 class="page-ttl">ガイドライン<span>QTmedia</span></h2>
+            <!-- page-ttl -->
+
+            <div class="inner">
+
+                <div class="breadCrumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="../@guidelines/">ガイドライン</a></li>
+                        <li>テンプレートの使い方、ルール</li>
+                    </ul>
+                </div>
+
+                <!-- tab-list -->
+                <ul class="tab-list">
+                    <li><a href="index.html">概要、基本ルール</a></li>
+                    <li><a class="active" href="index2.html">テンプレートの使い方、ルール</a></li>
+                    <li><a href="index3.html">クオリティチェック</a></li>
+                    <li><a href="release_note.html">リリースノート</a></li>
+                </ul>
+                <!-- tab-list -->
+
+                <!-- post-content -->
+                <article class="post-content">
+
+                    <!-- wysiwyg -->
+                    <div class="wysiwyg">
+
+                        <!-- h1 -->
+                        <h1>テンプレートの使い方、ルール</h1>
+                        <!-- h1 -->
+
+                        <div class="mokuji">
+                            <p>目次</p>
+                            <ol>
+                                <li><a href="#guide01">コンパイル用ソフト</a></li>
+                                <li><a href="#guide02">ディレクトリ構成</a></li>
+                                <li><a href="#guide03">scssの分類について</a></li>
+                                <li><a href="#guide04">スタイルガイドについて</a></li>
+                                <li><a href="#guide05">module.html画像ブロック使い方</a></li>
+                                <li><a href="#guide06">ヘッダーの使い方</a></li>
+                                <li><a href="#guide07">wysiwygの使い方</a></li>
+                                <li><a href="#guide08">jsの記述箇所</a></li>
+                                <li><a href="#guide09">動的部分のコーディング時の注意点</a></li>
+                            </ol>
+                        </div>
+
+                        <!-- h2 -->
+                        <h2 id="guide01">コンパイル用ソフト</h2>
+                        <!-- h2 -->
+
+                        <!-- h3 -->
+                        <h3>プリプロス</h3>
+                        <!-- h3 -->
+
+                        <p>プリプロス：<a href="https://prepros.io/" target="_blank">https://prepros.io/</a></p>
+
+
+                        <!-- h5 -->
+                        <h5>設定</h5>
+                        <!-- h5 -->
+
+                        <ul>
+                            <li>OUTPUT FILE<br>→吐き出すcssのフォルダを設定</li>
+                            <li>FILEOPTIONS<br>☑Process Automatically<br>☑Create a Source Map</li>
+                        </ul>
+
+                        <!-- h2 -->
+                        <h2 id="guide02">ディレクトリ構成</h2>
+                        <!-- h2 -->
+
+                        <p>各々のページのみで使うcssは、それぞれのディレクトリ配下のcssフォルダに吐き出してください</p>
+
+                        <pre class="guideline-code">
+	<code>
+		html/
+		├── index.html
+		│
+		├── css/
+		│ ├── common.css
+		│ ├── top.css
+		│ ├── print.css
+		│
+		├── img/
+		│ ├── common/
+		│ ├── top/
+		││
+		├── js/
+		│ ├── jquery.js
+		│ ├── common.js
+		│ ├── plugin.js
+		│ ├── plugin-name/　（プラグインとそれに関連するアイテムは同じフォルダに格納してください。）
+		│ 　├── plugin-name.js
+		│ 　├── plugin-name.css
+		│ 　├── images/
+		││
+		├── scss/
+		│ ├── common/（common.scssに吐き出すscssファイルを格納してください）
+		│ ├──── _base.scss
+		│ ├──── _element.scss
+		│ ├──── _variable.scss
+		││
+		│ ├── page/（各ページに吐き出すscssファイルを格納してください）
+		│ ├──── _top.scss
+		│ ├──── _event.scss
+		││
+		├── news/
+		│ ├── index.html
+		│ ├── detail.html
+		│ ├── css/
+		│ │ 　├── news.css　（ディレクトリごとの固有のcssにはそのディレクトリ名を使ってください）
+	</code>
+	</pre>
+
+
+
+                        <!-- h2 -->
+                        <h2 id="guide03">scssの分類について</h2>
+                        <!-- h2 -->
+
+                        <!-- h3 -->
+                        <h3>variable.scss</h3>
+                        <!-- h3 -->
+
+                        <p>変数、ミックスインなどの設定のまとめ</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>$font-</th>
+                                    <td>フォント</td>
+                                </tr>
+                                <tr>
+                                    <th>$color-</th>
+                                    <td>色</td>
+                                </tr>
+                                <tr>
+                                    <th>$bp-</th>
+                                    <td>ブレークポイント。<br>$bp-inはPC表示の際のコンテンツの基本幅とし、ベース幅より大きいサイズを$bp-in-l、小さい幅を、$bp-in-m、$bp-in-s・・とする。ちなみに、$bp、$bp-sはスマホ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>ミックスイン</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>bp-</th>
+                                    <td>変数$bp-と同じ名前をつける</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!-- h3 -->
+                        <h3>base.scss</h3>
+                        <!-- h3 -->
+
+                        <p>サイトの基本設定を記述</p>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>.inner</th>
+                                    <td>PC表示の際のコンテンツの幅を設定、ベースをinnerとし、ベース幅より大きいサイズをinner-l・・小さい幅をinner-m、inner-s、inner-ss・・とする</td>
+                                </tr>
+                                <tr>
+                                    <th>$color-</th>
+                                    <td>色</td>
+                                </tr>
+                                <tr>
+                                    <th>$bp-</th>
+                                    <td>ブレークポイント</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- h3 -->
+                        <h3>reset.scss</h3>
+                        <!-- h3 -->
+
+                        <p>リセットcss</p>
+
+                        <!-- h3 -->
+                        <h3>header.scss</h3>
+                        <!-- h3 -->
+
+                        <p>ヘッダーの設定</p>
+                        <p class="note">※_includeフォルダのheaderと同じ名前のscssを設定する</p>
+
+                        <!-- h3 -->
+                        <h3>footer.scss</h3>
+                        <!-- h3 -->
+
+                        <p>フッターの設定</p>
+
+                        <!-- h3 -->
+                        <h3>element.scss</h3>
+                        <!-- h3 -->
+
+                        <p>エレメントパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>module.scss</h3>
+                        <!-- h3 -->
+
+                        <p>モジュールパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>component.scss</h3>
+                        <!-- h3 -->
+
+                        <p>コンポーネント</p>
+
+                        <!-- h3 -->
+                        <h3>animation.scss</h3>
+                        <!-- h3 -->
+
+                        <p>アニメーション</p>
+
+                        <!-- h3 -->
+                        <h3>form.scss</h3>
+                        <!-- h3 -->
+
+                        <p>フォームパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>wysiwyg.scss</h3>
+                        <!-- h3 -->
+
+                        <p>動的ページの管理画面用のcss、ウィジウィグ</p>
+
+                        <!-- h3 -->
+                        <h3>slider.scss</h3>
+                        <!-- h3 -->
+
+                        <p>スライダー</p>
+
+                        <!-- h3 -->
+                        <h3>original.scss</h3>
+                        <!-- h3 -->
+
+                        <p>どの分類にも属さないものに使用</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide04">スタイルガイドについて</h2>
+                        <!-- h2 -->
+
+                        <!-- h3 -->
+                        <h3>element.html</h3>
+                        <!-- h3 -->
+
+                        <p>エレメントパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>module.html</h3>
+                        <!-- h3 -->
+
+                        <p>モジュールパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>component.html</h3>
+                        <!-- h3 -->
+
+                        <p>コンポーネント</p>
+
+                        <!-- h3 -->
+                        <h3>form.html</h3>
+                        <!-- h3 -->
+
+                        <p>フォームパーツ</p>
+
+                        <!-- h3 -->
+                        <h3>wysiwyg.html</h3>
+                        <!-- h3 -->
+
+                        <p>動的ページの管理画面用のhtml、ウィジウィグ</p>
+
+                        <!-- h3 -->
+                        <h3>slider.html</h3>
+                        <!-- h3 -->
+
+                        <p>スライダー</p>
+                        <p class="note">slide.htmlはスライダーのデフォルト、slide-fade.htmlはフェードで切り替え、slider-thumb.htmlはサムネイルありバージョン</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide05">module.html画像ブロック使い方</h2>
+                        <!-- h2 -->
+
+                        <p>コンテンツ内の要素を横並びにする際に使用します。クラス名col2は２カラム、クラス名col3は３カラム、クラス名col4は4カラムなど。<br>
+                            また、クラス名sp-col01はスマホ表示の時の1カラム、クラス名sp-col02はスマホ表示の時の2カラム</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide06">ヘッダーの使い方</h2>
+                        <!-- h2 -->
+
+                        <p>用途に合わせた、includeフォルダ内のヘッダーを使用する。</p>
+                        <p class="note">※使用するヘッダーをinclude/header.htmlと名前を変更<br>
+                            ※使用するヘッダーと同じ名前のscssファイルをcommon.scssにインクルードさせる<br>
+                            ※使用するヘッダーのcommon.jsを適用</p>
+
+                        <!-- h3 -->
+                        <h3>header.html</h3>
+                        <!-- h3 -->
+
+                        <figure class="border-frame">
+                            <img src="img/header01.png" alt="">
+                        </figure>
+
+                        <!-- h3 -->
+                        <h3>header_normal.html</h3>
+                        <!-- h3 -->
+
+                        <figure class="border-frame">
+                            <img src="img/header02.png" alt="">
+                        </figure>
+
+                        <!-- h3 -->
+                        <h3>header_megamenu.html</h3>
+                        <!-- h3 -->
+
+                        <figure class="border-frame">
+                            <img src="img/header03.png" alt="">
+                        </figure>
+
+                        <!-- h2 -->
+                        <h2 id="guide07">wysiwygの使い方</h2>
+                        <!-- h2 -->
+
+                        <p>基本的に、head内はjqueryの読み込みを記入し、それ以外はbodyの閉じタグ上に記載します。<br>
+                            個別ページのスクリプトは基本、下に記載します。</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide08">jsの記述箇所</h2>
+                        <!-- h2 -->
+
+                        <p>基本的に、head内はjqueryの読み込みを記入し（上部に設置しないと動作しないスクリプトについては、上部可に設置可）、それ以外はbodyの閉じタグ上に記載します。個別ページのスクリプトは基本、下部に記載します。</p>
+
+                        <!-- h2 -->
+                        <h2 id="guide09">動的部分のコーディング時の注意点</h2>
+                        <!-- h2 -->
+
+                        <p>※情報、文章量が多い時、少ない時あらゆる状況を想定してコーディングする必要があります。例えば以下の点に注意してコーディングしてください</p>
+
+                        <h3>文章が多い場合の確認について</h3>
+
+                        <p>アイコンのインデント、高さなどのレイアウト崩れに注意する。</p>
+
+                        <h3>一覧ページについて</h3>
+
+                        <p>例えば1行４カラムの場合、2つの表示で左右に分かれないように、<em>justify-content: space-between;を使わない</em></p>
+
+                        <h3>画像の表示について</h3>
+
+                        <p>例えば↓のサムネイル箇所（画像の動的部分）について、どのようなサイズの画像が設定されても綺麗に枠内に収まるように<br>
+                            <em>imgにobject-fit:cover</em>を指定する
+                        </p>
+
+                    </div>
+                    <!-- wysiwyg -->
+
+                    <!-- list-thumb -->
+                    <ul class="list-thumb col4 sp-col01">
+
+                        <li><a href="">
+                                <div class="ph-list"><img src="https://placehold.jp/800x600.png" alt=""></div>
+                                <div class="txt-part">
+                                    <h4 class="ttl">タイトル</h4>
+                                    <div class="list-icon">
+                                        <p class="category">カテゴリー</p>
+                                        <p class="category">カテゴリー</p>
+                                    </div>
+                                    <p class="txt">ここにテキストが入りますここにテキストが入ります</p>
+                                </div>
+                            </a></li>
+
+                    </ul>
+                    <!-- list-thumb -->
+
+                </article>
+                <!-- post-content -->
+
+                <!-- btn-postback -->
+                <p class="btn-postback"><a href="../@guidelines/index.html">ガイドラインに戻る</a></p>
+                <!-- btn-postback -->
+
+            </div>
+
+        </div>
+        <!--contents-->
+        <footer id="footer">
+
+            <!-- page-top -->
+            <div class="page-top">
+                <a href="#"></a>
+            </div>
+            <!-- page-top -->
+
+        </footer>
+
+    </div>
+    <!-- wrapper -->
+
+</body>
+
+</html>

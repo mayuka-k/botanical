@@ -1,0 +1,208 @@
+@charset "UTF-8";
+/* --------------------------------------------------
+
+ガイドライン cssのみ
+
+-------------------------------------------------- */
+
+.border-frame {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 余白 */
+.wrapper {
+    overflow: hidden;
+    padding-bottom: 5%;
+}
+
+table+.note {
+    margin-top: -2em;
+}
+
+/* タブ */
+.tab-list {
+    position: relative;
+    margin: 2em 0 4em;
+}
+
+.tab-list::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    top: calc(100% - 3px);
+    border-bottom: 3px solid #707070;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tab-list>li {
+    margin-right: 1%;
+}
+
+.tab-list>li a {
+    font-size: 1.6rem;
+    padding: 1em;
+    color: #FFF;
+    background: none;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    border: 3px solid #707070;
+    background: #707070;
+}
+
+.tab-list>li .active {
+    opacity: 10;
+    color: #707070;
+    background: #FFF;
+}
+
+.tab-list>li .active::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: calc(100% + 1.25px);
+    height: 3px;
+    top: 100%;
+    right: -1.25px;
+    background-color: #FFF;
+}
+
+.tab-list>li a:hover {
+    opacity: 10;
+    color: #707070;
+    background: #FFF;
+}
+
+.tab-list>li a:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: calc(100% + 1.25px);
+    height: 3px;
+    top: 100%;
+    right: -1.25px;
+    background-color: #FFF;
+}
+
+@media screen and (max-width: 768px) {
+    .tab-list {
+        overflow-x: scroll;
+    }
+
+    .tab-list>li {
+        min-width: 200px;
+    }
+}
+
+/* 目次 */
+.wysiwyg .mokuji {
+    padding: 1em 3em;
+    background: #F0F0F0;
+    margin-bottom: 2em;
+}
+
+.wysiwyg .mokuji a {
+    color: #333;
+}
+
+/* 例 */
+.example {
+    color: #aaa;
+    font-size: 1.6rem;
+}
+
+/* 注釈 */
+.note {
+    font-size: 1.4rem;
+}
+
+/* リンク */
+.wysiwyg a {
+    color: #1a0dab;
+}
+
+.wysiwyg a:hover {
+    text-decoration: underline;
+
+}
+
+/* table */
+.wysiwyg table tr th {
+    min-width: 10em;
+    text-align: left;
+}
+
+.wysiwyg table tr td {
+    min-width: 7em;
+}
+
+.wysiwyg table.table-block {
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.wysiwyg table.table-block th {
+    width: 25%;
+    text-align: center;
+}
+
+.wysiwyg table.table-block th:nth-child(2) {
+    width: 60%;
+}
+
+.wysiwyg table.table-block tbody th:first-child {
+    padding: 1em;
+    text-align: left;
+}
+
+.wysiwyg table.table-block td:last-child {
+    font-size: 1.4rem;
+}
+
+/* ul */
+.wysiwyg ul li {
+    padding-left: 2em;
+    padding-bottom: .5em;
+}
+
+.wysiwyg ul.list-code {
+    font-size: 1.4rem;
+    margin: .5em 0 0;
+}
+
+.wysiwyg ul.list-code li {
+    padding-bottom: 0.3em;
+}
+
+/* guideline-box */
+.guideline-box {
+    width: 100%;
+    border: 1px solid #F0F0F0;
+    padding: 1em;
+}
+
+.guideline-box .ttl {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 700;
+    border-bottom: 1px solid #333;
+    padding: 0.5em 0;
+    margin: 0 0 0.5em;
+}
+
+.guideline-box p {
+    margin: 0;
+}
+
+/* guideline-code */
+.guideline-code {
+    width: 100%;
+    margin: 1em 0;
+    padding: .5em;
+    background: #25292f;
+    color: #fff;
+    font-size: 1.6rem;
+    overflow-x: scroll;
+}
