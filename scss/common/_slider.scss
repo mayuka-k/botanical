@@ -1,0 +1,569 @@
+@use 'common/variable' as *;
+
+/* --------------------------------------------------
+
+スライダー共通
+
+-------------------------------------------------- */
+
+// 矢印ボタン
+.swiper {
+//     overflow: unset !important;
+
+    .swiper-button-block {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 50px auto 100px 30px;
+        align-items: center;
+        position: relative;
+        margin-top: 0.5em;
+        // width: 135px;
+
+        .swiper-pagination {
+            display: inline;
+            grid-column: 1 / 2;
+        }
+
+        .arrows-button {
+            display: flex;
+            grid-column: 3 / 4;
+
+            @include bp {
+                justify-content: flex-end;
+                padding-right: 1em;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                // background: #4A3A0F;
+                position: static;
+                top: auto;
+                margin-top: 0;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                position: relative;
+                border: none;
+                background: url(../img/common/ico_slider_arrow_bg.svg) no-repeat center center/contain;
+
+                &::after {
+                    content: none;
+                }
+
+                // position: absolute;
+                // z-index: 10;
+                // width: auto;
+                // height: auto;
+                // cursor: pointer;
+
+                // &::after {
+                //     content: "";
+                //     width: 45px;
+                //     height: 45px;
+                //     display: block;
+                //     border: none;
+                //     transform: rotate(0);
+                //     // 矢印の画像（右向き → ）
+                //     background: url(../img/common/ico_slider_arrow_bg.svg) no-repeat center center/contain;
+
+                //     @include bp {
+                //         width: 30px;
+                //         height: 30px;
+                //     }
+                // }
+
+                // &.swiper-button-disabled {
+                //     opacity: 0;
+                // }
+            }
+
+            .stopbtn02 {
+                grid-column: 4 / 5;
+            }
+
+            .swiper-button-next {
+                transform: rotate(-180deg);
+            }
+
+            // .swiper-button-prev {
+            //     &::after {
+            //         transform: rotate(-180deg);
+            //     }
+            // }
+        }
+    }
+}
+
+// 共通パーツ
+.slider-block {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .swiper {
+        padding: 1em 0 2em 0;
+
+        .swiper-wrapper {
+            height: auto;
+        }
+
+        button {
+            border: none;
+        }
+
+        // 画像サイズ
+        .swiper-slide {
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 25px 65px 25px 65px;
+                @include bp {
+                    border-radius: 15px 35px 15px 35px;
+                }
+
+                @include bp-s {
+                    border-radius: 15px 25px 15px 25px;
+                }
+            }
+        }
+
+        // ページネーション
+        .swiper-pagination {
+            display: flex;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $color-base;
+        }
+
+        // 再生・停止ボタン（停止ボタンノーマル）
+        .stopbtn {
+            color: #FFF;
+            background: #333;
+            border-radius: 1em;
+            font-size: 1.4rem;
+            text-align: center;
+            padding: 0.2em 0.8em;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before {
+                content: "";
+                width: 12px;
+                height: 12px;
+                display: inline-block;
+                border: none;
+                background: url(../img/common/ico_play_w.svg) no-repeat center center/contain;
+                margin-right: 0.5em;
+            }
+
+            &.stop:before {
+                background: url(../img/common/ico_stop_w.svg) no-repeat center center/contain;
+            }
+
+            // 再生・停止ボタン（停止ボタン画像切り替え）
+            &02 {
+                color: #FFF;
+                background: $color-base;
+                border-radius: 50%;
+                padding: 0.5em;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                right: 1em;
+                bottom: 0;
+
+                @include bp {
+                    right: 0;
+                }
+
+                img {
+                    width: 13px;
+                    height: 13px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        // ボタン並列
+        .btn-swiper {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 0.5em;
+            bottom: 0;
+
+            p {
+                &+p {
+                    margin-left: 0.5em;
+                }
+
+                button {
+                    &.btn {
+                        color: #FFF;
+                        padding: 0.5em;
+                        background: $color-base;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* --------------------------------------------------
+
+各種スライダー
+
+-------------------------------------------------- */
+
+// slider-bnr
+.slider-bnr {
+    padding: 2em;
+    background: $color-base-l01;
+
+    .swiper {
+        padding: 0;
+    }
+
+    .list-bnr {
+        justify-content: flex-start;
+
+        li {
+            margin: 0;
+            height: auto;
+        }
+    }
+}
+
+// slider-thumb（events内で使用）
+.slider-thumb {
+    margin: 2em 0;
+
+    .swiper {
+        padding: 0;
+    }
+
+    .list-thumb {
+        margin-bottom: 2em;
+        height: auto;
+        flex-wrap: nowrap;
+
+    }
+
+    .gallery-top {
+        .swiper-slide {
+            position: relative;
+            padding-top: 65%;
+            background-color: #EEE;
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1);
+                transition: all 0.7s;
+                object-fit: cover;
+
+                @media all and (-ms-high-contrast:none) {
+                    width: auto;
+                    height: auto;
+                    max-width: 130%;
+                    max-height: 130%;
+                }
+            }
+        }
+    }
+
+    .gallery-thumbs {
+        .swiper-slide {
+            position: relative;
+            padding-top: 18%;
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: none;
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+// slider-thumb-vertical
+.slider-thumb-vertical {
+    height: 700px;
+    display: flex;
+    // overflow: hidden;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include bp {
+        width: 100%;
+        height: 520px;
+        margin-bottom: 2em;
+    }
+    @include bp-s {
+        height: 400px;
+    }
+    .swiper-wrapper {
+        height: 100%;
+        // overflow: hidden;
+    }
+
+    .thumb-block {
+        // flex: 1;
+        width: 75%;
+        position: relative;
+        @include bp {
+            width: 100%;
+            height: 400px;
+        }
+        @include bp-s {
+            height: 280px;
+        }
+    }
+
+    .gallery-top {
+        // flex: 1;
+        margin-right: 5%;
+        padding: 0;
+        // overflow: hidden!important;
+        height: 100%;
+        z-index: 8;
+        border-radius: 20px;
+        @include bp {
+            margin-right: 0;
+        }
+
+        .swiper-wrapper {
+            // overflow: hidden;
+            .swiper-slide {
+                background: #EEE;
+                position: relative;
+                // border-radius: 20px;
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width:100%;
+                    height:100%;
+                    object-fit:cover
+                }
+            }
+        }
+    }
+
+    .gallery-thumbs {
+        width: 25%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important;
+
+        @include bp {
+            width: 100%;
+            height: 135px;
+        }
+
+        .swiper-slide {
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            background: #EEE;
+
+            @include bp {
+                margin-top: 1em;
+                height: 110px !important;
+                // width: 130px !important;
+            }
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // border-radius: 20px;
+                width:100%;
+                height:100%;
+                object-fit:cover
+            }
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        z-index: 10;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            width: 55px;
+            height: 55px;
+            display: block;
+            border: none;
+            transform: rotate(0);
+            right: -30px;
+            top: 50%;
+            // transform: translateY(-50%);
+            z-index: 12;
+            position: absolute;
+            // 矢印の画像（右向き → ）
+            background: url(../img/common/ico_slider_arrow.svg) no-repeat center center/contain;
+            @include bp {
+                width: 40px;
+                height: 40px;
+                right: -25px;
+            }
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0;
+        }
+    }
+
+    .swiper-button-prev {
+        &::after {
+            transform: rotate(-180deg);
+        }
+    }
+
+    .swiper-button-next {
+        &::after {
+            // top: 50%;
+            // transform: translateY(-50%);
+            right: 15px;
+            @media only screen and (max-width: 1000px) {
+				right: 0;
+			}
+            @include bp {
+                right: -20px;
+            }
+        }
+    }
+}
+
+
+// slider-scroll
+.slider-scroll-wrap {
+    .slider-scroll {
+        margin-right: calc(50% - 50vw);
+
+        @include bp {
+            margin-right: 0;
+        }
+
+        .swiper {
+            padding-bottom: 4em;
+        }
+
+        .slider-block {
+            max-width: 100%;
+
+            @include bp {
+                padding-bottom: 3em;
+            }
+        }
+
+        // button next prev
+        .swiper-button-next,
+        .swiper-button-prev {
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: auto;
+        }
+
+        .swiper-button-next {
+            left: 2.5em;
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            content: none;
+
+            @include bp {
+                content: "";
+                width: .8em;
+                height: .8em;
+                border: none;
+            }
+        }
+    }
+
+    // ipadのみ適応
+    &.ipad {
+
+        // slider-scroll
+        .slider-scroll {
+            margin-right: 0;
+
+            .slider-block {
+                max-width: 100%;
+                padding-bottom: 4em;
+            }
+
+            // button next prev
+            .swiper-button-next,
+            .swiper-button-prev {
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: auto;
+            }
+
+            .swiper-button-next {
+                left: 4.5em;
+            }
+
+            .swiper-button-prev {
+                left: 1em;
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                content: "";
+                width: .8em;
+                height: .8em;
+            }
+
+            .list-scroll {
+                li {
+                    border: none;
+                }
+            }
+        }
+    }
+}

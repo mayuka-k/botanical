@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+@use '../common/variable' as *;
+
+/* --------------------------------------------------
+
+access
+
+-------------------------------------------------- */
+
+.sentence-block p {
+	margin-bottom: 1em;
+}
+
+/* iframe-area */
+.iframe-area {
+	position: relative;
+	width: 100%;
+	padding-top: 56%;
+	margin: 5% 0;
+
+	iframe {
+		filter: saturate(1.2);
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100% !important;
+		height: 100% !important;
+		border-radius: 25px 65px 25px 65px;
+
+		@include bp {
+			border-radius: 15px 35px 15px 35px;
+		}
+
+		@include bp-s {
+			border-radius: 15px 25px 15px 25px;
+		}
+	}
+}
+
+// 画像サイズ
+.pht-single {
+	position: relative;
+
+	// @include bp {
+	// 	margin-bottom: 2em;
+	// }
+	// z-index: 0;
+	img {
+		width: 100%;
+		object-fit: cover;
+		// margin-bottom: 3em;
+		position: relative;
+	}
+
+	// 画像切り替え
+	.pc-hide {
+		display: none;
+
+		@include bp {
+			display: block;
+		}
+	}
+
+	// sp-hide
+	.sp-hide {
+		@include bp {
+			display: none;
+		}
+	}
+
+
+}
+
+.sentence-block{
+	margin: 0 1.5em;
+}
+
+.post-sttl-large {
+	text-align: center;
+}

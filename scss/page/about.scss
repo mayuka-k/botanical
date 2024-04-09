@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+@use '../common/variable' as *;
+
+/* --------------------------------------------------
+
+event
+
+-------------------------------------------------- */
+
+.sentence-block p {
+	margin-bottom: 4em;
+}
+
+
+// 画像サイズ
+.pht-single {
+	position: relative;
+	// @include bp {
+	// 	margin-bottom: 2em;
+	// }
+	// z-index: 0;
+	img {
+		width: 100%;
+		object-fit: cover;
+		border-radius: 25px 65px 25px 65px;
+		margin-bottom: 3em;
+		position: relative;
+
+		@include bp {
+			border-radius: 15px 35px 15px 35px;
+		}
+
+		@include bp-s {
+			border-radius: 15px 25px 15px 25px;
+		}
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		width: 400px;
+		height: 300px;
+		top: -12%;
+		left: -20%;
+		// transform: translate(50%, -17%);
+		display: inline-block;
+		background: url(../../img/common/hexagon_06.svg) no-repeat center center/contain;
+		z-index: -1;
+
+		@media only screen and (max-width: 1080px) {
+			width: 300px;
+			height: 200px;
+		}
+
+		@include bp {
+			width: 200px;
+			height: 130px;
+			top: -12%;
+			left: -15%;
+		}
+
+		@include bp-s {
+			width: 150px;
+			height: 100px;
+			top: -14%;
+			left: -17%;
+		}
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 400px;
+		height: 300px;
+		bottom: -7%;
+		right: -15%;
+		// transform: translate(50%, -17%);
+		display: inline-block;
+		background: url(../../img/common/hexagon_05.svg) no-repeat center center/contain;
+		z-index: 1;
+
+		@media only screen and (max-width: 1080px) {
+			width: 300px;
+			height: 200px;
+			// bottom: -14%;
+			right: -11%;
+		}
+
+		@include bp {
+			width: 200px;
+			height: 130px;
+			bottom: -5%;
+			right: -11%;
+		}
+
+		@include bp-s {
+			width: 150px;
+			height: 100px;
+			bottom: -2%;
+		}
+	}
+}

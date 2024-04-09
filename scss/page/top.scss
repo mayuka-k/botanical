@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+@use '../common/variable' as *;
+
+.main-area {
+
+    // スライダー
+    .slider-block {
+
+        // ページネーション
+        .swiper-horizontal>.swiper-pagination-bullets {
+            text-align: left;
+
+            // @include bp {
+            //     left: 2em;
+            // }
+        }
+    }
+
+}
+
+
+.main-area {
+    .inner {
+        position: relative;
+        max-width: 1080px;
+        width: auto;
+
+        @include bp {
+            width: 92%;
+        }
+
+        .btn-block {
+            margin: 0;
+            position: absolute;
+            bottom: 6em;
+            right: 0;
+            z-index: 1;
+
+            //  transform: translate(50%, 0);
+            // @media only screen and (max-width: 1100px) {
+            //     bottom: 4em;
+            // }
+            // @include bp-s {
+            //     bottom: 5em;
+            // }
+            .btn-base {
+                a {
+                    font-family: $font-eng;
+                    font-size: 4.8rem;
+                    min-width: 300px;
+                    @include fbp(20);
+
+                    @media only screen and (max-width: 1100px) {
+                        font-size: 3rem;
+                    }
+
+                    @include bp {
+                        min-width: 200px;
+                    }
+
+                    @include bp-s {
+                        // min-width: 4em;
+                    }
+
+                    @include fbp(22);
+                }
+
+                &.arrow {
+                    a {
+                        padding: 0.3em 2em 0.3em 1.2em;
+
+                        @include bp {
+                            padding: 0.3em 2.2em 0.3em 1.2em;
+                        }
+
+                        &:after {
+                            content: "";
+                            width: 45px;
+                            height: 45px;
+                            top: 50%;
+                            right: 0.7em;
+                            transform: translateY(-50%);
+
+                            @media only screen and (max-width: 1100px) {
+                                width: 28px;
+                                height: 28px;
+                                right: 1em;
+                            }
+
+                            @include bp {
+                                width: 26px;
+                                height: 26px;
+                                // top: 19%;
+                                right: 0.6em;
+                            }
+                        }
+
+                        &:hover {
+                            background: $color-base;
+                            color: #fff;
+
+                            // &:after {
+                            //     background: url(../img/common/ico_arrow_r_bg.svg) no-repeat center center/contain;
+                            // }
+                        }
+                    }
+                }
+
+                &.border {
+                    a {
+                        @include bp {
+                            border-radius: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .slider-block {
+        .swiper {
+            @include bp {
+                padding: 0 0 2em 0;
+            }
+        }
+    }
+}
+
+.news-area {
+    margin: 8% 0;
+
+    @include bp {
+        margin: 10% 0 15% 0;
+        ;
+    }
+
+    .bg-c {
+        padding: 2em 0;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 25em;
+            height: 15em;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -17%);
+            display: inline-block;
+            background: url(../img/common/hexagon_01.svg) no-repeat center center/contain;
+            // margin-right: 0.5em;
+            z-index: -1;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 25em;
+            height: 15em;
+            bottom: 0;
+            left: 0;
+            transform: translate(-34%, 45%);
+            display: inline-block;
+            background: url(../img/common/hexagon_02.svg) no-repeat center center/contain;
+            z-index: -1;
+            // margin-right: 0.5em;
+        }
+    }
+
+    .news-block {
+        display: flex;
+        align-items: center;
+        // margin-bottom: 3em;
+        padding: 0 2em;
+
+        @media only screen and (max-width: 1100px) {
+            flex-direction: column;
+            padding: 0 1.5em;
+        }
+
+        .ttl-top {
+            width: 25%;
+
+            @media only screen and (max-width: 1100px) {
+                margin: .2em 0;
+                width: 100%;
+            }
+        }
+
+        .list-news {
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+    }
+
+
+
+}
+
+.event-area {
+    flex-direction: column;
+
+    .btn-block {
+        margin: 2em 0 0 0;
+
+        @include bp {
+            margin: 2em 0 3em 0;
+        }
+    }
+
+}
+
+
+.information-area {
+    margin: 10% 0 5%;
+
+    .block-lr {
+        @include bp {
+            margin: .2em 0;
+        }
+
+        .facilityguide-block,
+        .use-block {
+            position: relative;
+
+            @include bp {
+                text-align: center;
+            }
+
+            a:hover {
+                opacity: 0.7;
+                transition: all 0.3s;
+
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .ttl-medium {
+            position: absolute;
+            top: 27%;
+            left: 0;
+            // transform: translate(50%, 0);
+
+            @include bp {
+                top: 35%;
+            }
+
+            @include bp-s {
+                top: 30%;
+            }
+
+        }
+
+        .btn-block {
+            @include bp {
+                display: flex;
+            }
+        }
+
+        .btn-block.right {
+            @include bp {
+                justify-content: center;
+            }
+        }
+
+    }
+}
+
+.block-lr.col2>div {
+    @include bp {
+        width: 100%;
+    }
+}
+
+.btn-block {
+    @include bp {
+        display: flex;
+    }
+}
+
+.btn-block .right {
+    @include bp {
+        align-items: center;
+    }
+}

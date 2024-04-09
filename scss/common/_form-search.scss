@@ -1,0 +1,307 @@
+@use 'common/variable' as *;
+
+fieldset {
+
+    // margin-bottom: 1em;
+    legend {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        display: none;
+    }
+
+    &.ds-legend {
+        legend {
+            display: block;
+        }
+    }
+
+    &.form-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &.btn-check {
+
+            span,
+            div {
+                position: relative;
+                margin: 0 0.5em 0.5em 0;
+
+                >input {
+                    opacity: 0;
+
+                    &:checked {
+                        +label {
+                            color: #FFF;
+                            background: $color-base;
+                        }
+                    }
+
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                >label {
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 0.1em 1.5em;
+                    margin-right: 0;
+                    background: #FFF;
+                    border: 1px solid $color-second;
+                    border-radius: 3em;
+                    cursor: pointer;
+                    @include fbp(14);
+                }
+            }
+        }
+
+        &.btn-icon {
+            display: flex;
+            align-items: stretch;
+            flex-wrap: wrap;
+            margin-bottom: 1em;
+
+            legend {
+                font-size: 1.6rem;
+                font-weight: bold;
+                margin-bottom: 0.5em;
+                display: none;
+            }
+
+            &.ds-legend {
+                legend {
+                    display: block;
+                }
+            }
+
+            span,
+            div {
+                margin: 0;
+                display: block;
+
+                >input {
+                    opacity: 0;
+
+                    &:checked {
+                        +label {
+                            background: $color-gray;
+                        }
+                    }
+
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                >label {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 1em 1.5em;
+                    background: #FFF;
+                    border: none;
+                    border-radius: 1em;
+                    box-shadow: 0 0 2px 2px rgba($color: #000, $alpha: 0.1);
+                    cursor: pointer;
+
+                    @include bp {
+                        font-size: 1.6rem;
+                    }
+
+                    >span {
+                        margin-top: .4em;
+                        line-height: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.input-search {
+
+    fieldset {
+        margin: 0;
+        border-radius: 0.5em;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        border: 1px solid $color-second;
+
+        legend {
+            display: none;
+        }
+
+        input {
+            border: none;
+            border-radius: 0;
+            background: #FFF;
+            flex: 1;
+
+            &::placeholder {
+                color: $color-placeholder;
+            }
+
+            @include bp {
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5) !important;
+                }
+            }
+        }
+
+        button {
+            color: #FFF;
+            padding: 0.5em 1em;
+            border-radius: 0;
+            border: none;
+            background: $color-second;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            @include hover;
+
+            img {
+                margin-right: 0.5em;
+            }
+        }
+    }
+}
+
+.period-search {
+    display: flex;
+    align-items: center;
+    gap: 0 1em;
+
+    @include bp {
+        flex-direction: column;
+        gap: 0.5em 0;
+    }
+
+    >div {
+        position: relative;
+
+        @include bp {
+            width: 100%;
+        }
+
+        label {
+            display: none;
+        }
+
+        &::before {
+            content: "";
+            width: 1em;
+            height: 1em;
+            display: block;
+            background: url(#{$img-co}ico_calendar.svg) no-repeat center center/contain;
+            position: absolute;
+            left: 0.5em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input {
+            padding-left: 2em;
+        }
+    }
+}
+
+/* --------------------------------------------------
+
+検索条件で絞り込む
+
+-------------------------------------------------- */
+
+.search-conditions {
+    @include bp {
+        &.bg-c {
+            padding: 1.5em 1em;
+        }
+    }
+
+    &.toggle {
+        .btn-toggle {
+            // margin-bottom: 2em;
+            text-align: center;
+
+            .ttl {
+                font-size: 2rem;
+                font-weight: bold;
+                display: inline-block;
+                background: none;
+                border: none;
+                cursor: pointer;
+
+                span {
+                    padding: 0 2em;
+                    display: block;
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        width: 1em;
+                        height: 2px;
+                        border: none;
+                        background: $color-base;
+                        position: absolute;
+                        top: 50%;
+                        right: 0.5em;
+                        display: block;
+                        transform: translateY(-50%) rotateZ(0);
+                    }
+                }
+
+            }
+
+            &.open-search {
+                .ttl {
+                    span {
+                        &:before {
+                            content: "";
+                            width: 1em;
+                            height: 2px;
+                            border: none;
+                            background: $color-base;
+                            position: absolute;
+                            top: 50%;
+                            right: 0.5em;
+                            display: block;
+                            transform: translateY(-50%) rotateZ(90deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .search-conditions-inner {
+        margin-top: 2em;
+        display: grid;
+        gap: 1em 1em;
+
+        >dl {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+
+            @include bp {
+                display: block;
+            }
+
+            dt {
+                margin-bottom: 0.5em;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+
+                @include bp {
+                    text-align: center;
+                    display: block;
+                }
+            }
+        }
+    }
+}

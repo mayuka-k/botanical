@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+/* --------------------------------------------------
+
+初期設定
+
+-------------------------------------------------- */
+// font
+$font-primary: 'Zen Kaku Gothic New', 'Noto Sans JP', "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ ProN W3", "HiraKakuProN-W3", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+$font-secondary: 'Noto Serif JP', "游明朝", "YuMincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", serif;
+$font-eng: "Karla",'Zen Kaku Gothic New',Arial, sans-serif;
+
+// color
+$color-text: #000;
+$color-base: #1D7775;
+
+$color-base-d01: #222;
+$color-base-l01: #CCC;
+
+$color-second: #EBF5E7;
+$color-yellow: #FCFFD2;
+
+$color-red: #B31F1F;
+$color-blue: #206CCD;
+$color-green: #2FBF8A;
+$color-green02: #BDDFB0;
+
+
+
+$color-gray: #E8E8E8;
+$color-gray-l01: #F8F8F8;
+$color-gray-d01: #707070;
+
+$color-placeholder: #AAA;
+
+// break point
+$bp-in-l: 1300px;
+$bp-in: 1080px;
+$bp-in-m: 1000px;
+
+$bp-in-sm: 720px;
+
+$bp: 768px;
+$bp-s: 420px;
+
+// ブラウザの縦スクロールバーの幅
+$bar: 20px;
+
+// 背景パス
+$img-co: "../img/common/"; // common.cssからcommonフォルダ参照
+$img-up: "../img/"; // 各フォルダのcssから各フォルダのimgフォルダ参照
+
+/* --------------------------------------------------
+
+hover
+
+-------------------------------------------------- */
+
+@mixin hover {
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+/* --------------------------------------------------
+
+スマホサイズのフォント指定
+
+-------------------------------------------------- */
+
+@function get_vw($size, $viewport: 375) {
+    $rate: 100 / $viewport;
+    @return $rate * $size * 1vmin;
+}
+
+@mixin fbp($font_size: 10) {
+    @media only screen and (max-width: $bp) {
+        font-size: $font_size * 0.1rem;
+        // font-size: get_vw($font_size);
+    }
+}
+
+@mixin mb($margin_bottom_size: 10) {
+    margin-bottom: $margin_bottom_size * 0.8rem;
+}
+
+/* --------------------------------------------------
+
+breakpoint
+
+-------------------------------------------------- */
+@mixin bp-up {
+    @media only screen and (min-width: (($bp + 1px) + $bar)) {
+        @content;
+    }
+}
+
+@mixin bp-in-l {
+    @media only screen and (max-width: ($bp-in-l + $bar)) {
+        @content;
+    }
+}
+
+@mixin bp-in {
+    @media only screen and (max-width: ($bp-in + $bar)) {
+        @content;
+    }
+}
+
+@mixin bp-in-m {
+    @media only screen and (max-width: ($bp-in-m + $bar)) {
+        @content;
+    }
+}
+
+@mixin bp-in-sm {
+    @media only screen and (max-width: ($bp-in-sm + $bar)) {
+        @content;
+    }
+}
+
+@mixin bp {
+    @media only screen and (max-width: $bp) {
+        @content;
+    }
+}
+
+@mixin bp-s {
+    @media only screen and (max-width: $bp-s) {
+        @content;
+    }
+}

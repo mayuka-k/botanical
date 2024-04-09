@@ -1,0 +1,213 @@
+@use 'common/variable' as *;
+
+/* --------------------------------------------------
+
+footer
+
+-------------------------------------------------- */
+
+#footer {
+    color: $color-text;
+    background: $color-second;
+    padding: 2em 0 0;
+    border-radius: 85px 25px 0 0;
+    margin-top: 4em;
+
+    @include bp {
+        margin-top: 2em;
+    }
+
+    .info-area {
+        display: flex;
+        padding: 0 2em;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 3em 0;
+
+        @include bp {
+            flex-direction: column;
+            margin: 2.4em 0;
+        }
+
+        .info-name {
+            position: relative;
+            font-size: 3.6rem;
+            font-weight: 600;
+            @include fbp(24);
+            margin-right: 1.5em;
+            z-index: 1;
+
+            @include bp {
+                margin: 0 0 1em 0;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                background: url(../img/common/ico_hexagon_g.svg) no-repeat center / contain;
+                width: 7em;
+                height: 7em;
+                top: -50%;
+                left: 0px;
+                transform: translate(-40%, 0);
+                z-index: -1;
+
+                @include bp {
+                    width: 6em;
+                    height: 6em;
+                    top: -35%;
+                }
+            }
+
+            span {
+                font-size: 2.4rem;
+                display: inline-block;
+                @include fbp(14);
+
+                @include bp {
+                    margin-top: .5em;
+                }
+            }
+        }
+
+        .info-adress {
+            font-size: 2rem;
+            line-height: 1.8;
+            font-weight: 600;
+            text-align: left;
+            margin-right: 3em;
+            @include fbp(15);
+
+            @media only screen and (max-width:1070px) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .list-bnr {
+        margin-bottom: 2.4em;
+    }
+
+    .link-footer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 2.4em;
+        padding: .5em 1em;
+        border-top: 1px solid $color-base;
+        border-bottom: 1px solid $color-base;
+
+        @include bp {
+            justify-content: flex-start;
+        }
+
+        li {
+            a {
+                color: $color-text;
+                font-size: 1.8rem;
+                font-weight: 600;
+                padding: .5em 1em;
+                text-align: center;
+                display: block;
+                @include fbp(13);
+
+                @include bp {
+                    padding: .1em .3em;
+                }
+
+                &:hover {
+                    color: $color-base;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+
+    .copy-block {
+        background: $color-green02;
+
+        .copy {
+            font-size: 1.3rem;
+            padding: 1em 0;
+            text-align: center;
+            letter-spacing: 0.1em;
+            @include fbp(10);
+        }
+    }
+
+    .page-top {
+        position: relative;
+        z-index: 100;
+
+        a {
+            color: #FFF;
+            padding: 1em 1.2em;
+            line-height: 1.3;
+            letter-spacing: 0.1em;
+            text-align: center;
+            background: url(../img/common/ico_pagetop_back.svg) no-repeat center;
+            background-size: cover;
+            // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            right: 3%;
+            bottom: 5%;
+            transition: all 0.4s;
+            @include fbp(13);
+            @include hover;
+
+            @include bp {
+                bottom: 1em;
+            }
+
+            &:before {
+                content: "";
+                width: 0.5em;
+                height: 0.5em;
+                margin: 0 auto;
+                border-left: 3px solid #FFF;
+                border-top: 3px solid #FFF;
+                display: block;
+                transform: rotateZ(45deg);
+            }
+
+            img {
+                min-width: 1.5em;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+#footer_nolink {
+    background-color: transparent;
+    color: $color-text;
+    padding: 2em 0 0;
+    // margin-top: 4em;
+    // @include bp {
+    //     margin-top: 2em;
+    // }
+
+    .page-top {
+        display: none;
+        a{
+            display: none;
+        }
+    }
+
+    .copy-block {
+        background: $color-second;
+
+        .copy {
+            font-size: 1.3rem;
+            padding: .5em 0;
+            text-align: center;
+            letter-spacing: 0.1em;
+            @include fbp(10);
+        }
+    }
+
+}

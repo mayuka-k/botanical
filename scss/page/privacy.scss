@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+@use '../common/variable' as *;
+
+/* --------------------------------------------------
+
+privacy
+
+-------------------------------------------------- */
+
+.inner {
+    .sentence-block {
+        &:last-child {
+            margin-bottom: 3em;
+        }
+    }
+
+
+}
