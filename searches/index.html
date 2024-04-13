@@ -56,9 +56,110 @@
 
     <div class="wrapper">
 
-        <!-- ※※※※※ 開発の方へ組み込み時削除してください　※※※※※ -->
-        <script>header('../');</script>
-        <!-- ※※※※※ 開発の方へ組み込み時削除してください　※※※※※ -->
+        <!-- header -->
+        <header id="header">
+
+            <!-- header-wrap -->
+            <div class="header-wrap">
+                <!-- ※※※※※ 開発の方へトップページのみh1に変更してください　※※※※※ -->
+                <h1 class="logo-h"><a href="/index.html"><img src="../img/common/logo.svg"
+                            alt="QTmedia"></a>
+                </h1>
+                <!-- ※※※※※ 開発の方へトップページのみh1に変更してください　※※※※※ -->
+
+                <div class="header-contents">
+                    <!-- logo-h -->
+                    <!-- <div class="logo-h"><a href="index.html">
+                    <img src="{$root}img/common/logo.svg" alt="ボタニカルライフスクエア"></a>
+            </div> -->
+                    <!-- logo-h -->
+
+
+                    <!-- navi -->
+                    <nav id="navi">
+                        <ul class="gnavi sp-c">
+                            <li><a href="/about/index.html">ボタニカルライフスクエアとは</a></li>
+                            <li><a href="/news/index.html">お知らせ</a></li>
+                            <li><a href="/events/index.html">イベント</a></li>
+                            <li><a href="/facilityguide/index.html">施設案内</a></li>
+                            <li><a href="/userguide/index.html">利用手続き</a></li>
+                            <li><a href="/access/index.html">アクセス</a></li>
+                            <li><a href="/inquiries/form.html">お問合せ</a></li>
+                        </ul>
+                    </nav>
+                    <!-- navi -->
+
+                    <!-- function-block -->
+                    <!-- <div class="function-block"> -->
+
+                    <!-- btn-skip -->
+                    <div class="btn-skip">
+                        <p><button onclick="location.href='#contents'">本文へ</button></p>
+                    </div>
+
+                    <!-- fontsize -->
+                    <div class="fontsize">
+                        <dl>
+                            <dt>文字サイズ</dt>
+                            <dd>
+                                <p><button id="fs-s">小</button></p>
+                                <p><button class="active" id="fs-m">中</button></p>
+                                <p><button id="fs-l">大</button></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- fontsize -->
+
+                    <!-- bg-color -->
+                    <div class="bg-color">
+                        <dl>
+                            <dt>背景色</dt>
+                            <dd>
+                                <p><button id="bg-w">白</button></p>
+                                <p><button class="btn-bg-b" id="bg-b">黒</button></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- bg-color -->
+
+                    <!-- btn-search -->
+                    <div class="btn-search">
+                        <form>
+                            <fieldset>
+                                <div class="search-block">
+                                    <legend>サイト内検索</legend>
+                                    <input name="data[Search][keywords]" type="text" placeholder="サイト内検索" class="text"
+                                        title="キーワード検索" value="" id="SearchKeywords-h"><button></button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- btn-search -->
+                    <!-- </div> -->
+                    <!-- function-block -->
+                </div>
+
+
+            </div>
+            <!-- header-wrap -->
+
+            <!-- btn-menu -->
+            <div class="btn-menu">
+                <div tabindex="0" role="button" class="btn-s sp-p">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>メニュー</p>
+                </div>
+            </div>
+            <!-- btn-menu -->
+
+
+        </header>
+        <!-- header -->
+
 
         <!--contents-->
         <div id="contents">
@@ -158,9 +259,82 @@
         </div>
         <!--contents-->
 
-        <!-- ※※※※※ 開発の方へ組み込み時削除してください　※※※※※ -->
-        <script>footer('../');</script>
-        <!-- ※※※※※ 開発の方へ組み込み時削除してください　※※※※※ -->
+<!-- footer -->
+<footer id="footer">
+
+    <!-- page-top -->
+    <div class="page-top">
+        <a href="#header">page<br>top</a>
+    </div>
+    <!-- page-top -->
+
+
+    <!-- inner -->
+    <div class="inner">
+
+        <!-- info-area -->
+        <div class="info-area">
+            <p class="info-name">施設管理者<br>
+                <span>公益財団法人<br>
+                    福岡市緑のまちづくり協会</span>
+            </p>
+            <div class="info-adress">
+                <p>〒810-0033<br class="sp-br">
+                    福岡市中央区小笹5-1-1 福岡市植物園<br>
+                    電話番号 (092)260-8817<br>
+                    FAX (092)401-1384<br>
+                    メールアドレス bs@midorimachi.jp</p>
+            </div>
+        </div>
+        <!-- info-area -->
+        <!-- list-bnr -->
+        <ul class="list-bnr">
+            <li><a href="https://zoo.city.fukuoka.lg.jp/zoo/"><img src="../img/top/bnr_fuk_zoo.png" loading="lazy"
+                        alt="バナー：福岡市動物園"></a></li>
+            <li><a href="https://botanical-garden.city.fukuoka.lg.jp/"><img src="../img/top/bnr_fuk_botanical.png"
+                        loading="lazy" alt="バナー：福岡市植物園"></a></li>
+        </ul>
+        <!-- list-bnr -->
+
+        <!-- link-f -->
+        <ul class="link-footer" id="sitemap">
+            <li><a href="/about/index.html">ボタニカルライフスクエアとは</a></li>
+            <li><a href="/news/index.html">お知らせ</a></li>
+            <li><a href="/events/index.html">イベント</a></li>
+            <li><a href="/facilityguide/index.html">施設案内</a></li>
+            <li><a href="/userguide/index.html">利用手続き</a></li>
+            <li><a href="/access/index.html">アクセス</a></li>
+            <li><a href="/inquiries/form.html">お問合せ</a></li>
+            <li><a href="/accessibility/index.html">アクセシビリティ試験結果ページ</a></li>
+        </ul>
+        <!-- link-f -->
+    </div>
+
+
+    <!-- inner -->
+    <!-- copy-block -->
+    <div class="copy-block">
+
+        <!-- inner -->
+        <div class="inner">
+            <!-- inner-m -->
+            <div class="inner-m">
+
+                <!-- copy -->
+                <p class="copy">Copyright (C) 2023 Fukuoka City Greenery Town Planning Association,All rights reserved.
+                </p>
+                <!-- copy -->
+
+            </div>
+            <!-- inner-m -->
+        </div>
+        <!-- inner -->
+    </div>
+    <!-- copy-block -->
+
+
+</footer>
+<!-- footer -->
 
     </div>
     <!-- wrapper -->
